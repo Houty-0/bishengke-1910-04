@@ -1,0 +1,55 @@
+<div class="m-member-home">
+	<div class="center">
+		<div class="left center-left">
+			<div class="black3 bnt-login">
+				<div class="roy_div2_home" id="j-home-login">
+					<img src="../imgs/member/noLoginHead.png">
+					<div>
+						<a href="javascript:void(0);" class="white"> <span
+							class="font14 white add-memeber-button">注册 | 登录</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="roy_div4 roy_div4_line">
+				<div class="roy_div44">
+					<img src="../imgs/member/home-card.png" class="roy_img1">
+					<p class="roy_p">我的卡卷</p>
+					<p class="roy_p1 couponNum">- -</p>
+				</div>
+			</div>
+			<div class="roy_div4 roy_div4_line">
+				<div class="roy_div44">
+					<img src="../imgs/member/home-k.png" class="roy_img1">
+					<p class="roy_p">我的V金</p>
+					<p class="roy_p1 vJin">- -</p>
+				</div>
+			</div>
+			<div class="roy_div4">
+				<div class="roy_div44">
+					<img src="../imgs/member/home-left.png" class="roy_img1">
+					<p class="roy_p">我的余额</p>
+					<p class="roy_p1 balance">- -</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div class="bottom">
+		<div class="qrCodelogin"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		$("#j-home-login").click(function() {
+			$("#j-dialog").load("/login/login.html");
+			$(".ui-dialog-overlay").show();
+			$(".ui-dialog").show();
+			$(".scanQrcode").show();
+			/* 当在此页面登录,但不是在顶部通过立即点餐登录时,登录成功后任在此页面,故为此情况做一个标记 */
+			$("#j-home-login").data("login", true);
+		});
+
+	});
+</script>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsk.dican.dao.BskGoodDao">
+
+	<select id="findObjects"
+		resultType="com.bsk.dican.entity.BskGood">
+		SELECT id,menu_id menuId,name,note,price,img_url imgUrl,
+		bao_zhuang
+		baoZhuang,type,size,is_new isNew
+		FROM bsk_goods
+		<where>
+			<if test="id!=null and id>0">
+				menu_id=#{menuId}
+			</if>
+		</where>
+	</select>
+
+</mapper>

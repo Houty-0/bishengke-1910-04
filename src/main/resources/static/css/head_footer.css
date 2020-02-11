@@ -1,0 +1,300 @@
+/* 通用属性设置 */
+body {
+	 font: 12px "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+body,ul,li {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a{
+	color: #363636;
+	text-decoration: none;
+}
+
+
+/* 左右浮动 */
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.hidden {
+	display: none;
+}
+
+/* 遮罩层 */
+.ui-dialog-overlay {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 888;
+}
+
+/* 注册登录窗口  */
+.ui-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #FFF;
+    border-radius: 2px;
+    z-index: 9000;
+    min-width: 360px;
+    min-height: 100px;
+    overflow: hidden;
+}
+
+/* 头部元素 */
+.m-top {
+	width: 100%;
+	min-width: 1200px;
+	height: 70px;
+	position: fixed;
+	top: 0;
+	background-color: #fff;
+	z-index: 10;
+}
+
+.m-top .box .user .username, .m-top .box .user .arrow, .m-top .box .user .member {
+    display: inline-block;
+    overflow: hidden;
+}
+
+/* 头部中间div */
+.m-top .box {
+	height: 100%;
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 15px;
+}
+
+/* logo图片 */
+.m-top .box .logo {
+	width: 210px;
+	height: 100%;
+	margin-right: 40px;
+	background: url(../imgs/head-foot/logo.png) no-repeat center center;
+}
+
+/* 菜单项 */
+.m-top .box .menu {
+	width: 140px;
+	line-height: 70px;
+}
+
+.m-top .box .menu:hover {
+	color: #E6534F;
+	border-top: 5px solid #E6534F;
+	line-height: 60px;
+}
+
+/* 菜单上红线 */
+.m-top .box .menu-on {
+	color: #E6534F;
+	border-top: 5px solid #E6534F;
+	line-height: 60px;
+}
+
+/* 菜单左侧竖线 */
+.m-top .box .separator {
+	height: 100%;
+	width: 1px;
+	background: url(../imgs/head-foot/separator.png) no-repeat center;
+}
+
+/* 立即点餐 */
+.m-top .box .start {
+	width: 240px;
+	line-height: 70px;
+	height: 70px;
+	font-size: 20px;
+	font-weight: 500;
+	color: #FFF;
+	cursor: pointer;
+	background-color: #f04e4e;
+}
+
+.m-top .box .user {
+    min-width: 150px;
+    max-width: 172px;
+    height: 70px;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+.m-top .box .separator {
+    height: 100%;
+    width: 1px;
+    background: url(../imgs/head-foot/separator.png) no-repeat center;
+}
+
+.m-top .box .user .arrow {
+    display: inline-block;
+    width: 10px;
+    margin-right: 10px;
+    background: url(../imgs/head-foot/arrow-down.png) no-repeat center 34px;
+}
+
+.m-top .box .user:hover .arrow {
+    background-image: url(../imgs/head-foot/arrow-up.png);
+}
+
+.m-top .box .user ul {
+    display: none;
+    margin-top: -30px;
+    background-color: #FFF;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.m-top .box .user:hover ul {
+    display: block;
+}
+
+.m-top .box .user li {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.m-top .box .red-hover:hover {
+    color: #E6534F;
+}
+
+
+/* 尾部样式 */
+.m-foot {
+	width: 100%;
+	color: #666;
+	font-weight: 600;
+	background-color: #fff;
+	/* margin-top: 100%; */
+}
+
+.m-foot .content {
+	height: 100%;
+	/* overflow: hidden; */
+	margin: 0 auto;
+}
+
+/* 底部logo行 */
+.m-foot .content .content-logo {
+	width: 840px;
+	height: 39px;
+	line-height: 39px;
+	margin: 30px auto 10px;
+	
+}
+
+/* 底部logo图片 */
+.m-foot .content .content-logo .logo {
+	width: 204px;
+	height: 39px;
+	background: url(../imgs/head-foot/logo.png) no-repeat;
+	float: left;
+}
+
+/* 底部电话 */
+.m-foot .content .content-logo .phone {
+	padding-left: 23px;
+	height: 100%;
+	background: url(../imgs/head-foot/phone.png) no-repeat left center;
+	font-size: 20px;
+	float: right;
+	text-align: right;
+}
+
+/* 底部电话 */
+.m-foot .strong-color {
+	color: black;
+}
+
+/* 底部送餐说明 */
+.m-foot .content .content-legal {
+	width: 840px;
+	height: 39px;
+	margin: 0 auto 5px;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+/* 底部菜单列 */
+.m-foot .contont-one {
+	width: 840px;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 auto;
+	/* background: #00FFFF; */
+}
+
+.m-foot .link {
+	height: 100%;
+}
+
+.m-foot {
+	color: #666666;
+}
+
+.m-foot .contont-one ul li {
+	float: left;
+	height: 100%;
+	margin-left: 9px;
+}
+
+.m-foot .contont-one .menu {
+	font-size: 14px;
+	font-weight: blod;
+	margin: 0 16px 0 0;
+}
+
+.m-foot .contont-one .margin-right {
+	float: right;
+	margin-left: 20px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/* 最底部 */
+.m-foot .content-two {
+	width: 100%;
+	margin: 0 auto;
+	clear: both;
+	height: 40px;
+	line-height: 40px;
+	background: #e5e6e1;
+
+}
+
+.m-foot .content-two .middle {
+	margin: 0 auto;
+	width: 990px;
+}
+
+.m-foot .yum-name {
+	padding-right: 10px;
+}
+
+.m-foot .content-two ul li {
+	float: left;
+	height: 100%;
+	margin-left: 5px;
+	
+}
+
+.m-foot .other {
+	text-indent: 14px;
+}

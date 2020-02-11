@@ -1,0 +1,184 @@
+#middle {
+	position: relative;
+	z-index: 1;
+	width: 1200px;
+	height: 875px;
+	margin: 100px auto 0px;
+}
+
+/* 正文第一部分 */
+#middle .b1 {
+	height: 626px;
+	background-color: #F2ECE4;
+}
+
+/* 正文第一部分的样式 */
+#middle .bb1 {
+	width: 1100px;
+	height: 231px;
+	margin: 0 auto;
+	position: absolute;
+	top: 295px;
+	left: 50px;
+	right: 50px;
+	background-color: #fefdf9;
+}
+
+#middle .bbb1 {
+	height: 187px;
+	margin-top: 22px;
+	margin-bottom: 22px;
+}
+
+#middle dl {
+	float: left;
+	margin: 14px 0px 0px;
+
+}
+
+#middle dt {
+	width: 183.25px;
+	height: 154px;
+	margin-top: 0px;
+	text-align: center;
+}
+
+#middle dd {
+	width: 183.25px;
+	height: 19px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #483932;
+	text-align: center;
+	margin: 0px;
+}
+
+/* 正文第二部分 */
+#middle .b2 {
+	height: 249px;
+	background-image: url(../imgs/index/background2.png);
+	background-repeat: no-repeat;
+}
+
+/* 第二部分文字模块 */
+#middle .bb2 {
+	float: left;
+	width: 350px;
+	height: 198px;
+	margin-left: 116px;
+	padding-top: 24px;
+	overflow: hidden;
+}
+
+/* 第一个文字模块的标题样式 */
+#middle .bbb2-title {
+	background-image: url(../imgs/index/hengxian.png);
+	background-repeat: no-repeat;
+	height: 68px;
+	font-size: 26px;
+	color: #E94F4F;
+	line-height: 68px;
+}
+
+/* 第一个文字模块的内容样式 */
+#middle .bbb2-content {
+	background-image: url(../imgs/index/xiaobiao.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	height: 26px;
+	font-size: 14px;
+	font-weight: 600;
+	text-indent: 30px;
+	line-height: 26px;
+	color: #503C3C;
+}
+
+/* 第二部分下载模块的样式 */
+#middle .bb3 {
+	float: left;
+	width: 247.56px;
+	height: 192px;
+	padding-top: 52px;
+	margin-top: 24px;
+}
+
+/* iPhone下载 */
+#middle .iphone {
+	float: left;
+	width: 96px;
+	height: 140px;
+}
+
+/* 安卓下载 */
+#middle .android {
+	float: right;
+}
+
+/* 下载按钮的正常样式 */
+.bb3 a {
+	display: block;
+	height: 28px;
+	font-size: 14px;
+	color: #FC4545;
+	margin-top: 16px;
+	text-align: center;
+	line-height: 28px;
+	border: 1px solid #FC4545;
+	border-radius: 14px;
+	text-decoration: none;
+	transition: all .3s ease-out;
+	/* 设置样式过渡时间 */
+}
+
+/* 下载按钮的伪类选择器 */
+.bb3 a:hover {
+	color: white;
+	background-color: #FC4545;
+}
+
+/* 在线客服样式 */
+.online {
+	width: 40px;
+	height: 87px;
+	position: absolute;
+	left: 1200px;
+	text-align: center;
+	cursor: pointer;
+}
+
+/* 弹出提示的样式 */
+.tip {
+	position: absolute;
+	top: -5px;
+	left: -146px;
+	width: 146px;
+	height: 137px;
+	background-image: url(../imgs/index/chat-tip.png);
+	display: none;
+}
+
+#middle>.online:hover .tip {
+	display: block;
+}
+
+/* 小图标的样式 */
+.com {
+	position: fixed;
+	bottom: 50px;
+	right: 2%;
+	z-index: 0;
+	min-width: 60px;
+	min-height: 60px;
+
+}
+
+.com img {
+	width: 60px;
+	height: 80px;
+}
+
+.com:hover img {
+	width: 120px;
+	height: 160px;
+}
+

@@ -1,0 +1,254 @@
+<!-- 扫码登录 -->
+<div class="scanQrcode">
+	<!-- 主页图标 -->
+	<div class="user-logo">
+		<img src="../imgs/login_register/logo-1.png">
+	</div>
+	<!-- 微信图标 -->
+	<div class="user-com">
+		<img src="../imgs/login_register/user-com.png">
+	</div>
+	<!-- 标题 -->
+	<div class="user-title">
+		<h3>微信扫码，点餐快人一步</h3>
+	</div>
+	<!-- 小程序码 -->
+	<div class="user-com2">
+		<img src="../imgs/login_register/user-com2.png">
+	</div>
+	<div class="user-tip">
+		<span class="login-pwd"><a href="javascript:void(0)">账号密码登录
+				|</a></span> <span class="register"><a href="javascript:void(0)">
+				免费注册</a></span>
+	</div>
+	<!-- 关闭 -->
+	<div class="user-close">
+		<img src="../imgs/login_register/close.png">
+	</div>
+</div>
+
+<!-- 账户密码登录 -->
+<div class="pwd">
+	<div class="user-close">
+		<img src="../imgs/login_register/close.png">
+	</div>
+	<!-- 二维码图标 -->
+	<div class="user-com">
+		<img src="../imgs/login_register/pwd-note.png">
+	</div>
+	<!-- 主页图标 -->
+	<div class="user-logo">
+		<img src="../imgs/login_register/logo-1.png">
+	</div>
+	<div class="pwd-title">
+		<!-- 账号密码登录提示 -->
+		<div class="pwd-title-pwd ">账号密码登录</div>
+		<div style="width: 1%; float: left;">|</div>
+		<!-- 短信登录提示 -->
+		<div class="pwd-title-note">短信验证码登录</div>
+	</div>
+	<!-- 输入手机号 -->
+	<div class="pwd-id">
+		<div class="pwd-id_img">
+			<img src="../imgs/login_register/user-name.png">
+		</div>
+		<input type="text" class="login-input" id="j-input-phone" placeholder="请输入您的手机号" />
+	</div>
+	<div class="pwd-pwd">
+		<div class="pwd-id_img">
+			<img src="../imgs/login_register/pwd-pwd.png">
+		</div>
+		<input type="password" class="login-input" id="pwd-input_id" placeholder="请输入密码" /> <img
+			src="../imgs/login_register/pwd-see.png">
+	</div>
+	<div class="pwd-tip">
+		<input type="checkbox" />记住我
+		<div style="float: right; margin-right: 60px;">忘记密码</div>
+	</div>
+
+	<div class="pwd-tip2">快速注册</div>
+	<!-- 登录键 -->
+	<div class="pwd-inner">登录</div>
+</div>
+
+<!-- 注册功能 -->
+<div class="m-login">
+	<!-- logo图片 -->
+	<div class="login-logo">
+		<img src="../imgs/login_register/logo-1.png">
+	</div>
+
+	<div class="font20 black9 login-tip">登录|注册</div>
+
+	<!-- 手机号码 -->
+	<div class="input-box">
+		<div class="left icon-content icon-phone"></div>
+		<input type="text" id="phone"
+			class="ui-input-text ui-input-color inputcss" maxlength="11"
+			placeholder="请输入手机号">
+	</div>
+
+	<!-- 密码输入框 -->
+	<div class="input-box line-bottom">
+		<div class="left icon-content icon-password"></div>
+		<input type="password" id="pwd" class="ui-input-text input-password"
+			placeholder="请输入密码" style="display: block;">
+	</div>
+
+	<!-- 短信验证码 -->
+	<div class="m-register j-sms-login input-box">
+		<div class="left icon-content icon-check"></div>
+		<input type="text" class="ui-input-text left input-code inputcss"
+			maxlength="6" placeholder="请输入验证码">
+		<div class="right font14 white bnt-sms-code cursor">发送验证码</div>
+	</div>
+
+	<!-- 忘记密码,记住我 -->
+	<div class="login-me">
+		<span class="login-remember-me"> <input type="checkbox"
+			name="rememberMe" id="j-remember-me" /> <label for="rememberMe">记住我</label>
+		</span> <span class="font12 red right login-forget-password"> <a
+			href="javascript:void(0)">忘记密码</a>
+		</span>
+	</div>
+
+	<!-- 登录按钮 -->
+	<a href="javascript:void(0)">
+		<div class="font14 white login cursor login-red">下一步</div>
+	</a>
+	<div class="dialog-close" style="top: 10px; left: 10px;"></div>
+
+</div>
+<script type="text/javascript">
+	$(function() {
+		/* 扫码窗口跳转到账号密码登录 */
+		$(".scanQrcode .user-tip .login-pwd").click(function() {
+			$(".scanQrcode").hide();
+			$(".pwd").show();
+		});
+
+		/* 扫码窗口跳转到快速注册 */
+		$(".scanQrcode .user-tip .register").click(function() {
+			$(".scanQrcode").hide();
+			$(".m-login").show();
+		});
+
+		/* 账号密码窗口跳转到快速注册 */
+		$(".pwd .pwd-tip2").click(function() {
+			$(".pwd").hide();
+			$(".m-login").show();
+		});
+
+		/* 账号密码窗口跳转到扫码登录窗口 */
+		$(".pwd .user-com").click(function() {
+			$(".pwd").hide();
+			$(".scanQrcode").show();
+		});
+
+		/* 扫码窗口关闭 */
+		$(".scanQrcode .user-close").click(function() {
+			$(".scanQrcode").hide();
+			$(".ui-dialog").hide();
+			$(".ui-dialog-overlay").hide();
+		});
+
+		/* 账号密码窗口关闭 */
+		$(".pwd .user-close").click(function() {
+			$(".pwd").hide();
+			$(".ui-dialog").hide();
+			$(".ui-dialog-overlay").hide();
+		});
+
+		/* 注冊窗口关闭事件 */
+		$(".m-login .dialog-close").click(function() {
+			$(".m-login").hide();
+			$(".ui-dialog").hide();
+			$(".ui-dialog-overlay").hide();
+		});
+		
+		/* 用户注册 */
+		$(".login").on("click",register);
+		
+		/* 用户登录 */
+		$(".pwd-inner").on("click",login)
+
+	});
+	
+	function login() {
+		// 1.获取用户手机
+		var phone = $("#j-input-phone").val();
+		// 2.获取用户密码
+		var pwd = $("#pwd-input_id").val();
+		var url = "/user/doLogin";
+		var params = {"phone":phone,"password":pwd};
+		
+		/* 获取用户从哪里登录的标识 */
+		var flag = $("#j-home-login").data("login");
+		
+		$.post(url,params,function(result){
+			console.log("result::",result);
+			if(result.state==1 && flag){
+				$("#j-dialog").empty(); // 清空登录注册内容区域
+				$("#j-dialog").hide(); // 登录注册内容区域隐藏
+				$(".ui-dialog-overlay").hide(); // 遮罩层隐藏
+				$("#j-home-login").data("login",false);
+				
+				doHandleResult(result.data);
+			} else if(result.state==1){
+				window.location.href="../addr.html?" + "phone=" + phone;
+			} else {
+				alert("login fail!!!");
+			}
+		})
+	}
+	
+	function doHandleResult(user){
+		// 头部用户名显示
+		if(user.username != null){
+			$(".username").html(user.username);
+		}
+		
+		// 用户名显示
+		var div = '<div style="text-align:left;margin-top:20px">' +
+					'<span class="font24 zhu_ce" style="margin-left:20px">'+(user.username == null ? "客户" : user.username)+'</span></div>';
+		$(".roy_div2_home").children("div").remove(); // 移除原有登录注册元素
+		
+		$('#j-home-login').unbind("click"); // 会员首页移除原有绑定事件
+		$("#j-start-order").unbind("click"); // 移除立即点餐原有绑定事件
+		$("#j-start-order").on("click",toAddr); // 重新绑定事件
+		
+		// $(".roy_div2_home").removeAttr('id');
+		$(".roy_div2_home").append(div);
+		
+		$("#j-top-coupon-size").html(user.coupon);// 顶部我的卡卷数量
+		$(".couponNum").html(user.coupon); // 会员首页的卡卷数量
+		$(".vJin").html(user.vj); // V金
+		$(".balance").html(user.balance); // 余额
+		$(".user").removeClass("hidden");
+	}
+	
+	// 跳转到地址页面
+	function toAddr(){
+		window.location.href="../addr.html";
+	}
+	
+	function register() {
+		// 1.获取用户手机
+		var phone = $("#phone").val();
+		// 1.获取用户密码
+		var pwd = $("#pwd").val();
+		
+		var url = "/user/doSaveObject";
+		var params = {"phone":phone,"password":pwd};
+		
+		$.post(url,params,function(result){
+			if(result.state==1){
+				alert("save ok!!!");
+				window.location.href="../addr.html?" + "phone=" + phone;
+			} else {
+				alert(result.message);
+			}
+		});
+		
+	}
+</script>

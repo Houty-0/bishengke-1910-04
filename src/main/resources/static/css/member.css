@@ -1,0 +1,210 @@
+.font14 {
+    font-size: 14px;
+}
+
+.font24 {
+	font-size: 24px;
+}
+
+.black3 {
+    color: #333333;
+}
+
+.white {
+    color: #fff;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.m-customer-center {
+    width: 100%;
+    margin-top: 70px;
+    background: #efeee9;
+}
+
+.m-customer-center .top-bg {
+    position: absolute;
+    width: 100%;
+    height: 270px;
+    top: 70px;
+    overflow: hidden;
+}
+
+.m-customer-center .top-bg .img {
+    width: 1500px;
+    height: 270px;
+    margin: 0 auto 0 auto;
+    background-image: url(../imgs/member/home-top.png);
+    background-repeat: no-repeat;
+}
+
+.m-customer-center .center-bg {
+    position: relative;
+    width: 1200px;
+    margin: 20px auto 0 auto;
+    overflow: hidden;
+}
+
+.m-customer-center .center-bg .center-left {
+    width: 160px;
+    margin: 200px 0 20px 0;
+    background: #fff;
+}
+
+.m-customer-center .center-bg .center-left ul .tab01_1 {
+    background-image: url(../imgs/member/menu-homePage1.png);
+}
+
+.m-customer-center .center-bg .center-left ul .on {
+    color: #e60013;
+    line-height: 60px;
+    border-left: 5px solid #e60013;
+}
+
+.m-customer-center .center-bg .center-left ul .line {
+    width: 100%;
+    height: 1px;
+    /* margin: 10px 0 5px 0; */
+    border-top: 2px solid #efeee9;
+}
+
+.m-customer-center .center-bg .center-left ul li a {
+    width: 180px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: 25px 18px;
+    line-height: 60px;
+    text-indent: 50px;
+    display: block;
+}
+
+.m-customer-center .center-bg .center-left ul .tab02 {
+    background-image: url(../imgs/member/menu-myCoupon.png);
+}
+
+.m-customer-center .center-bg .center-left ul .tab03 {
+    background-image: url(../imgs/member/menu-k.png);
+}
+
+.m-customer-center .center-bg .center-left ul .tab04 {
+    background-image: url(../imgs/member/menu-left.png);
+}
+
+.m-customer-center .center-bg .center-left ul .tab05 {
+    background-image: url(../imgs/member/menu-myOrder.png);
+}
+
+.m-customer-center .center-bg .center-left ul .tab06 {
+    background-image: url(../imgs/member/menu-address.png);
+}
+
+.m-customer-center .center-bg .center-left ul .tab07 {
+    background-image: url(../imgs/member/menu-information.png);
+}
+
+.m-member-home .center {
+    width: 1012px;
+    margin: 200px 0 0 188px;
+    overflow: hidden;
+}
+
+.m-member-home .center .center-left {
+    position: relative;
+    width: 1012px;
+    height: 350px;
+    margin: 0;
+    background: #fff;
+    text-align: center;
+}
+
+.m-member-home .center .center-left .bnt-login {
+    /* position: absolute; */
+    width: 1012px;
+    height: 116px;
+    /* left: 35px; */
+    bottom: 20px;
+    background: #fdfbfa;
+    line-height: 36px;
+}
+
+.roy_div2_home {
+    width: 250px;
+    height: 80px;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+.roy_div2_home img {
+    width: 76px;
+    height: 76px;
+    float: left;
+}
+
+.add-memeber-button {
+    position: absolute;
+    width: 130px;
+    height: 40px;
+    left: 35px;
+    bottom: 20px;
+    background: #f04e4e;
+    line-height: 40px;
+    margin-left: 60px;
+}
+
+.roy_div4_line {
+    border-right: 1px solid #eceaea;
+}
+
+.roy_div4 {
+    display: inline-block;
+    font-size: 17px;
+    width: 30%;
+    height: 234px;
+    margin-left: 15px;
+}
+
+.roy_div44 {
+    width: 180px;
+    margin-left: 30px;
+}
+
+.roy_img1 {
+    margin-top: 54px;
+    width: 50px;
+    height: 50px;
+}
+
+.roy_p {
+    line-height: 300%;
+    display: inline-block;
+    position: relative;
+    top: -12px;
+    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #888888;
+    margin-left: 20px;
+}
+
+.roy_p1 {
+    color: #555555;
+    font-size: 36px;
+    font-weight: 400;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.m-member-home .bottom {
+    width: 1012px;
+    margin: 20px 0 40px 188px;
+    background: #fff;
+}
+
+.qrCodelogin {
+    width: 100%;
+    height: 340px;
+    background: url(../imgs/member/home-bg-login.jpg) no-repeat;
+}
