@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bsk</groupId>
-	<artifactId>bishengke-v01</artifactId>
+	<artifactId>bishengke-1910-04</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bishengke-1910-04</name>
 	<description>Demo project for Spring Boot</description>
