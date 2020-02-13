@@ -61,6 +61,9 @@
 		<input type="password" class="login-input" id="pwd-input_id" placeholder="请输入密码" /> <img
 			src="../imgs/login_register/pwd-see.png">
 	</div>
+	<div class="pwd-code">
+
+	</div>
 	<div class="pwd-tip">
 		<input type="checkbox" />记住我
 		<div style="float: right; margin-right: 60px;">忘记密码</div>
@@ -99,8 +102,10 @@
 	<div class="m-register j-sms-login input-box">
 		<div class="left icon-content icon-check"></div>
 		<input type="text" class="ui-input-text left input-code inputcss"
-			maxlength="6" placeholder="请输入验证码">
-		<div class="right font14 white bnt-sms-code cursor">发送验证码</div>
+			maxlength="4" id="#input-code" placeholder="请输入验证码">
+		<!--<div class="right font14 white bnt-sms-code cursor">-->
+			<img alt="验证码"  src="/getSecurityCode" title="点击刷新" onclick="this.src='/getSecurityCode?t='+Math.random()">
+		<!--</div>-->
 	</div>
 
 	<!-- 忘记密码,记住我 -->
@@ -237,14 +242,14 @@
 		var phone = $("#phone").val();
 		// 1.获取用户密码
 		var pwd = $("#pwd").val();
-		
+		var code=$("#input-code").val();
 		var url = "/user/doSaveObject";
-		var params = {"phone":phone,"password":pwd};
+		var params = {"phone":phone,"password":pwd,"code":code};
 		
 		$.post(url,params,function(result){
 			if(result.state==1){
 				alert("save ok!!!");
-				window.location.href="../addr.html?" + "phone=" + phone;
+				window.location.href="../customer.html?";
 			} else {
 				alert(result.message);
 			}

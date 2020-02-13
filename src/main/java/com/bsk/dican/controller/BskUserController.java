@@ -25,9 +25,13 @@ public class BskUserController {
 	private BskUserService bskUserService;
 
 	@RequestMapping("/doSaveObject")
-	public JsonResult doSaveObject(BskUser bskUser) {
-		bskUserService.saveObject(bskUser);
-		return JsonResult.ok("save ok");
+	public JsonResult doSaveObject(BskUser bskUser,HttpSession session,String code) {
+		String securitycode = (String)session.getAttribute("Securitycode");
+		if(!securitycode.equals(code)){
+			return JsonResult.error("验证码错误");
+		}
+			bskUserService.saveObject(bskUser);
+		return JsonResult.ok("注册成功");
 	}
 
 	@RequestMapping("/doLogin")
