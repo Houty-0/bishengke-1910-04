@@ -41,9 +41,7 @@ mybatis:
 #lOG
 logging:
   level:
-    com.cy: DEBUG
-  file:
-    path: log
+    com.bsk.dican.dao: debug
     
 #page
 
