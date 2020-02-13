@@ -1,9 +1,9 @@
 package com.bsk.dican.dao;
 
+import com.bsk.dican.entity.BskUserMessage;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.bsk.dican.entity.BskUser;
-import com.bsk.dican.entity.BskUserMassage;
 
 @Mapper
 public interface BskUserDao {
@@ -17,7 +17,7 @@ public interface BskUserDao {
 	
 	/**
 	 * 2.根据手机号查询用户
-	 * @param id
+	 * @param
 	 * @return
 	 */
 	BskUser findObjectByPhone(String phone);
@@ -27,5 +27,5 @@ public interface BskUserDao {
 	 * @param userId
 	 * @return
 	 */
-	BskUserMassage findUserMessageByUserId(Integer userId);
+	BskUserMessage findUserMessageByUserId(Integer userId);
 }

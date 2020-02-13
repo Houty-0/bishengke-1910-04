@@ -16,7 +16,7 @@
 	</select>
 	
 	<!-- 3.根据用户id查询用户信息 -->
-	<select id="findUserMessageByUserId" resultType="com.bsk.dican.entity.BskUserMassage">
+	<select id="findUserMessageByUserId" resultType="com.bsk.dican.entity.BskUserMessage">
 		select username,gender,coupon,vj,balance
 		from bsk_user_message where user_id=#{userId}
 	</select>

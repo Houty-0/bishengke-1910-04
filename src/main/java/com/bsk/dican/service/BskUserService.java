@@ -1,7 +1,7 @@
 package com.bsk.dican.service;
 
 import com.bsk.dican.entity.BskUser;
-import com.bsk.dican.entity.BskUserMassage;
+import com.bsk.dican.entity.BskUserMessage;
 
 public interface BskUserService {
 
@@ -24,5 +24,5 @@ public interface BskUserService {
 	 * @param userId
 	 * @return
 	 */
-	BskUserMassage findUserMessageByUserId(Integer userId);
+	BskUserMessage findUserMessageByUserId(Integer userId);
 }

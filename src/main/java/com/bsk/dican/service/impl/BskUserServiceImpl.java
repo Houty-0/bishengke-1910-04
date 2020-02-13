@@ -8,10 +8,9 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bsk.common.util.Assert;
 import com.bsk.dican.dao.BskUserDao;
 import com.bsk.dican.entity.BskUser;
-import com.bsk.dican.entity.BskUserMassage;
+import com.bsk.dican.entity.BskUserMessage;
 import com.bsk.dican.service.BskUserService;
 
 @Service
@@ -54,8 +53,8 @@ public class BskUserServiceImpl implements BskUserService {
 	}
 
 	@Override
-	public BskUserMassage findUserMessageByUserId(Integer userId) {
-		BskUserMassage userMsg = bskUserDao.findUserMessageByUserId(userId);
+	public BskUserMessage findUserMessageByUserId(Integer userId) {
+		BskUserMessage userMsg = bskUserDao.findUserMessageByUserId(userId);
 		
 		return userMsg;
 	}

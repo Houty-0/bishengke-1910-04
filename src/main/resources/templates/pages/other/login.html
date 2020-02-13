@@ -175,6 +175,7 @@
 	});
 	
 	function login() {
+		debugger
 		// 1.获取用户手机
 		var phone = $("#j-input-phone").val();
 		// 2.获取用户密码
@@ -183,11 +184,10 @@
 		var params = {"phone":phone,"password":pwd};
 		
 		/* 获取用户从哪里登录的标识 */
-		var flag = $("#j-home-login").data("login");
+		// var flag = $("#j-home-login").data("login");
 		
 		$.post(url,params,function(result){
-			console.log("result::",result);
-			if(result.state==1 && flag){
+			if(result.state==1){
 				$("#j-dialog").empty(); // 清空登录注册内容区域
 				$("#j-dialog").hide(); // 登录注册内容区域隐藏
 				$(".ui-dialog-overlay").hide(); // 遮罩层隐藏
@@ -195,7 +195,7 @@
 				
 				doHandleResult(result.data);
 			} else if(result.state==1){
-				window.location.href="../addr.html?" + "phone=" + phone;
+				window.location.href="../customer.html?";
 			} else {
 				alert("login fail!!!");
 			}
