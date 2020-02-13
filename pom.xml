@@ -75,6 +75,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- 引入hutools插件 -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.0.7</version>
+		</dependency>
 	</dependencies>
 
 	<build>
