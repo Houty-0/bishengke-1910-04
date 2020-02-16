@@ -1,0 +1,113 @@
+<div class="m-shopping-content" id="j-shopping-content">
+	<div class="title-area" id="j-box-title-area">
+		<div class="close">
+			<span class="label cursor" id="j-shopping-close">&nbsp;</span>
+		</div>
+		<div class="title">我的购物盒</div>
+		<div class="clear-box">
+			<span class="label cursor" id="j-clear-all">清空购物盒</span>
+		</div>
+
+	</div>
+
+	<div class="desc-area" id="j-box-desc-area">
+		<div class="item" id="j-desc-pizza">
+			披萨<span class="red num">1</span>份
+		</div>
+		<div class="item left-border" id="j-desc-food">
+			其他主食<span class="red num">0</span>份
+		</div>
+		<div class="item left-border" id="j-desc-dessert">
+			小食<span class="red num">0</span>份
+		</div>
+		<div class="item left-border" id="j-desc-soup">
+			汤饮<span class="red num">0</span>份
+		</div>
+	</div>
+
+	<!-- 购物盒产品列表 -->
+	<div class="product-area" id="j-box-product-area"
+		style="height: 435px;">
+		<div class="item clear-fix" productid="2" sizeid="000">
+			<div class="m-p-img left">
+				<img src="../imgs/products/pizza/182_92284.jpg">
+			</div>
+			<div class="m-p-desc left">
+				<div class="middle">
+					<span>新奥尔良比萨2人餐</span><br /> <span class="red">79.0元</span>
+				</div>
+			</div>
+			<div class="m-p-calc right">
+				<div class="minus ui-minus-red j-minus"></div>
+				<div class="num">
+					<input type="text" value="1" readonly="readonly" />
+				</div>
+				<div class="j-plus plus ui-plus-grey"></div>
+			</div>
+			<div class="m-p-tip" style="display: block;">
+				<span>新奥尔良风情烤肉比萨(纯珍普通装)*1</span> <span>热柠檬红茶((标准杯))*1</span> <span>冰柠檬红茶((标准杯))*1</span>
+			</div>
+		</div>
+
+		<div class="item clear-fix">
+			<div class="m-p-prom">
+				<div class="middle">
+					<div class="middle-right">
+						<span>外送费: </span>
+					</div>
+				</div>
+			</div>
+			<div class="m-delivery-price">
+				<span>9.0元</span>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 送餐地址 -->
+	<div class="address-area clear-fix" id="j-box-address-area">
+		<div class="address left" title="">上海市海华厅(南京东路505号海仑宾馆5层)会湖公园25号</div>
+		<div class="time left">
+			<span class="red">外送</span>&nbsp;&nbsp;预计&nbsp; <span class="red">2020-02-13
+				11:00</span>左右到达
+		</div>
+		<div class="modify right cursor" id="j-box-modify-address">修改</div>
+	</div>
+
+</div>
+
+<div class="m-shopping-box clear-fix" id="j-shopping-box">
+	<div class="box-left left cursor" id="j-shopping-box-left">
+		<div class="quantity left" id="j-shopping-box-quantity">1</div>
+		<div class="total left">
+			<div class="middle" style="text-align: center;">
+				<span>总计 <span class="price" id="j-shopping-box-total">88.0</span>元
+				</span> <span class="font12" id="j-deliver-fee">(含9元外送费)</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="box-right left cursor" id="j-shopping-box-right">
+		<span>选好了</span> <span class="ui-next">&nbsp;</span>
+	</div>
+
+</div>
+
+<!-- 打开购物盒遮罩层 -->
+<div class="m-shopping-open" id="j-shopping-box-left"></div>
+
+<script type="text/javascript">
+	$(function(){
+		$("#j-shopping-box-left").bind("click",shoppingContentShow);
+		$("#j-shopping-content #j-box-title-area .close").on("click",shoppingContentHide)
+	})
+	
+	function shoppingContentShow() {
+		$("#j-shopping-content").toggle();
+	}
+	
+	function shoppingContentHide() {
+		$("#j-shopping-content").hide();
+	}
+
+</script>

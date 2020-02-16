@@ -1,0 +1,59 @@
+<!-- 分类条件导航 -->
+<div class="m-condition" style="width: 1081px;">
+
+	<!-- 隐藏的类型和尺寸图 -->
+	<div class="m-pizza-tip">
+		<div class="nav">
+			<div class="tap on">类型说明</div>
+			<div class="tap">尺寸说明</div>
+		</div>
+
+		<div class="img">
+			<img src="../imgs/menu/base_desc.jpg"> <img
+				src="../imgs/menu/size_desc.jpg" class="hidden">
+		</div>
+
+		<!-- 关闭开关 -->
+		<div class="close cursor"></div>
+	</div>
+
+	<div class="state-box" style="width: 100%;">
+		<div class="type-box">
+			<div class="title">
+				<div class="info ui-info"></div>
+				<div>类型</div>
+			</div>
+			<div class="item on">不限</div>
+			<div class="item">芝心</div>
+			<div class="item">铁盘</div>
+			<div class="item">二合一</div>
+		</div>
+		<div class="size-box">
+			<div class="title">
+				<div class="info ui-info"></div>
+				<div>尺寸</div>
+			</div>
+			<div class="item on">不限</div>
+			<div class="item">小装</div>
+			<div class="item">普通装</div>
+			<div class="item">铺装</div>
+		</div>
+	</div>
+</div>
+
+<!-- 类型,尺寸区域的空盒子,在类型,尺寸隐藏区域显示出来时设为块状元素,将商品列表顶下去 -->
+<div class="empty-container" id="j-empty-container"
+	style="display: none; height: 450px; width: 841px;"></div>
+
+<!-- 产品列表 -->
+<div class="m-product-list has-condition" id="j-product-list"></div>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function() {
+		/* 弹出商品详细介绍层 */
+		$(".m-product-list").on("click", ".img", popupProductDesc);
+		
+		var menuId = $("#j-menu-left").data("menuId"); // 获取之前展示的商品所属菜单Id
+		doFindObjects(menuId);
+	})
+</script>
