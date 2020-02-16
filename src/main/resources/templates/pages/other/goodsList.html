@@ -47,13 +47,14 @@
 
 <!-- 产品列表 -->
 <div class="m-product-list has-condition" id="j-product-list"></div>
-<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/menu.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-	$(function() {
-		/* 弹出商品详细介绍层 */
-		$(".m-product-list").on("click", ".img", popupProductDesc);
-		
-		var menuId = $("#j-menu-left").data("menuId"); // 获取之前展示的商品所属菜单Id
-		doFindObjects(menuId);
-	})
+  $(function() {
+    /* 弹出商品详细介绍层 */
+    $(".m-product-list").on("click", ".img", popupProductDesc);
+    $(".m-pizza-tip .nav .info").on("click",showPizzaTip);
+    
+    var menuId = $("#j-menu-left").data("menuId"); // 获取之前展示的商品所属菜单Id
+    doFindObjects(menuId);
+  })
 </script>
