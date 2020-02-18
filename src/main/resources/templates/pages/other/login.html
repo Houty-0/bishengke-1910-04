@@ -102,7 +102,7 @@
     <div class="m-register j-sms-login input-box">
         <div class="left icon-content icon-check"></div>
         <input type="text" class="ui-input-text left input-code inputcss"
-               maxlength="4" id="#input-code" placeholder="请输入验证码">
+               maxlength="4" id="input-code" placeholder="请输入验证码">
         <!--<div class="right font14 white bnt-sms-code cursor">-->
         <img alt="验证码" src="/getSecurityCode" title="点击刷新" onclick="this.src='/getSecurityCode?t='+Math.random()">
         <!--</div>-->
@@ -181,7 +181,7 @@
     });
 
     function login() {
-        debugger
+        //debugger
         // 1.获取用户手机
         var phone = $("#j-input-phone").val();
         // 2.获取用户密码
@@ -249,6 +249,7 @@
         var params = {"phone": phone, "password": pwd, "code": code};
 
         $.post(url, params, function (result) {
+        	console.log("registerResult",result);
             if (result.state == 1) {
                 alert(result.data);
                 window.location.href = "../customer.html?";

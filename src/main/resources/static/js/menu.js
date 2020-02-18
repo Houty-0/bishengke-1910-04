@@ -60,7 +60,7 @@ function closeGoodDetail() {
 	$(".m-pop-detail").hide();
 }
 
-
+/* 弹出商品详细介绍层 */
 function popupProductDesc() {
 	$(".ui-dialog-overlay").show();
 	/* 获取商品描述详细信息 */

@@ -237,7 +237,6 @@
 	<script src="../js/menu.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		/* ajax异步获取商品列表 */
 		$(function() {
 			$(".m-main .m-product-list").on("click", ".btn", doLogin);
 			$(".m-main .m-product-list").on("click", ".start", toOrderDetail);
@@ -247,7 +246,27 @@
 
 			/* 给所有菜单项添加点击事件 */
 			$(".m-menu").on("click", "a", getMenuId);
-
+			
+			doFindObjects();
+			
+			doGetUserMessage();
+			
+		})
+		
+		function doGetUserMessage() {
+			var url = "/user/getMessage";
+			var params = "";
+			console.log("11111111111");
+			$.get(url,params,function(result){
+				console.log(result);
+				if(result.state==1){
+					doLoadShoppingBox();
+				}
+			})
+		}
+		
+		function doFindObjects() {
+			/* ajax异步获取商品列表 */
 			var url = "/goods/doFindObjects";
 			var menuId = 1;
 			var params = {
@@ -262,7 +281,9 @@
 					$(".m-product-list").append(products);
 				}
 			});
-
+		}
+		
+		function doLoadShoppingBox() {
 			$.ajax({
 				url : "other/shoppingBox.html",
 				type : "get",
@@ -271,7 +292,8 @@
 					$(".m-main").after(result);
 				}
 			})
-		})
+		}
+		
 
 		function loadGoodsList() {
 			$.ajax({
@@ -287,18 +309,13 @@
 			})
 		}
 
+		/* 获取当前商品列表页面所属菜单id */
 		function getCurrentMenuId() {
 			var menuId = $("#j-menu-left").data("menuId");
 			doFindObjects(menuId);
 		}
 		
-		function doLogin() {
-			$("#j-dialog").load("/login/login.html");
-			$(".ui-dialog-overlay").show();
-			$(".ui-dialog").show();
-			$(".scanQrcode").show();
-		}
-
+		/* 获取菜单id */
 		function getMenuId() {
 			var menuId = $(this).prop("id");
 			$(this).parent("li").siblings(".on").removeClass("on");

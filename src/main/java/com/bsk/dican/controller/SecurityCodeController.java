@@ -21,6 +21,7 @@ public class SecurityCodeController {
         //验证码格式
         LineCaptcha securityCode = CaptchaUtil.createLineCaptcha(120, 36, 4, 50);
         //将验证码信息保存到session中方便在控制层去出验证
+        System.out.println("生成的验证码:" + securityCode.getCode());
         Session.setAttribute("SecurityCode",securityCode.getCode());
         //设置响应类型
         response.setContentType("image/jpg");

@@ -26,7 +26,10 @@ public class BskUserController {
 
 	@RequestMapping("/doSaveObject")
 	public JsonResult doSaveObject(BskUser bskUser,HttpSession session,String code) {
-		String securitycode = (String)session.getAttribute("Securitycode");
+		System.out.println("bskUser:" + bskUser);
+		System.out.println("用户输入的验证码:" + code);
+		String securitycode = (String)session.getAttribute("SecurityCode");
+		System.out.println("从session获取的验证码:" + securitycode);
 		if(!securitycode.equals(code)){
 			return JsonResult.error("验证码错误");
 		}
@@ -46,7 +49,7 @@ public class BskUserController {
 
 		Cookie cookie = new Cookie("id", user.getId().toString());
 		response.addCookie(cookie);
-		session.setAttribute("id", user.getId());
+		session.setAttribute("id", user.getId().toString());
 
 		return JsonResult.ok("登录成功");
 	}
