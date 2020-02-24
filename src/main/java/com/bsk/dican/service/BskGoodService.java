@@ -11,4 +11,11 @@ public interface BskGoodService {
 	 * @return
 	 */
 	List<BskGood> findObjects(Integer menuId);
+	
+	/**
+	 * 2.根据id查询商品信息
+	 * @param id
+	 * @return
+	 */
+	BskGood findObjectById(Integer id);
 }

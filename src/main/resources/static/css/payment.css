@@ -1,0 +1,59 @@
+.header {
+    width: 1200px;
+    height: 60px;
+    margin: auto;
+}
+
+.header img {
+    float: left;
+    display: block;
+    margin: 11px 10px 0 10px;
+}
+
+.header .title {
+    height: 40px;
+    border-left: 1px solid #e0e0e0;
+    float: left;
+    margin-top: 10px;
+    padding-left: 10px;
+    font: 24px/40px 'MicroSoft YaHei';
+    color: #e60013;
+}
+
+.center {
+    margin-top: 100px;
+}
+
+h2 {
+    font-size: 24px;
+    padding: 15px 0;
+    text-align: center;
+}
+
+h2 span {
+    color: #e60013;
+}
+
+#qrcode {
+    width: 256px;
+    height: 256px;
+    margin: auto;
+    padding: 10px 0 20px 0;
+}
+
+#qrcode img {
+	width: 256px;
+	height: 256px;
+}
+
+.info {
+    width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+    border-top: 1px dashed #ccc;
+    text-align: center;
+}
+
+.info p {
+    font-size: 18px;
+}

@@ -96,7 +96,7 @@
 				</ul>
 			</div>
 
-			<div class="m-menu-content right">
+			<div class="m-menu-content right" id="j-menu-content">
 
 				<!-- 分类条件导航 -->
 				<div class="m-condition" style="width: 1081px;">
@@ -232,10 +232,12 @@
 			</div>
 		</div>
 	</div>
-	<script src="../js/jquery-1.8.3.min.js" type="text/javascript"
-		charset="utf-8"></script>
+	<script src="../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/menu.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/orderDetail.js" type="text/javascript"></script>
+    <script src="../js/jquery.fly.min.js" type="text/javascript" ></script>
+    <script src="../js/requestAnimationFrame.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function() {
 			$(".m-main .m-product-list").on("click", ".btn", doLogin);
@@ -245,42 +247,23 @@
 			$(".m-product-list").on("click", ".img", popupProductDesc);
 
 			/* 给所有菜单项添加点击事件 */
-			$(".m-menu").on("click", "a", getMenuId);
-			
-			doFindObjects();
-			
+			$(".m-menu").on("click","a",getMenuId);
+
+			doFindObjectsByMenuId();
+
 			doGetUserMessage();
-			
+
 		})
-		
+
 		function doGetUserMessage() {
 			var url = "/user/getMessage";
 			var params = "";
-			console.log("11111111111");
 			$.get(url,params,function(result){
-				console.log(result);
+				console.log("userInfo",result);
 				if(result.state==1){
 					doLoadShoppingBox();
 				}
 			})
-		}
-		
-		function doFindObjects() {
-			/* ajax异步获取商品列表 */
-			var url = "/goods/doFindObjects";
-			var menuId = 1;
-			var params = {
-				"menuId" : menuId
-			};
-
-			$("#j-menu-left").data("menuId", menuId);// 保存当前展示的是哪个菜单Id对应的商品列表
-
-			$.get(url, params, function(result) {
-				if (result.state == 1) {
-					var products = doHandleResult(result.data);
-					$(".m-product-list").append(products);
-				}
-			});
 		}
 		
 		function doLoadShoppingBox() {
@@ -305,6 +288,7 @@
 						$(".m-menu-content.right").append(result);
 					}
 					getCurrentMenuId;
+					$(".m-main .m-product-list").on("click", ".start", toOrderDetail);
 				}
 			})
 		}
@@ -312,7 +296,7 @@
 		/* 获取当前商品列表页面所属菜单id */
 		function getCurrentMenuId() {
 			var menuId = $("#j-menu-left").data("menuId");
-			doFindObjects(menuId);
+			doFindObjectsByMenuId(menuId);
 		}
 		
 		/* 获取菜单id */
@@ -320,7 +304,7 @@
 			var menuId = $(this).prop("id");
 			$(this).parent("li").siblings(".on").removeClass("on");
 			$(this).parent("li").prop("class", "on");
-			doFindObjects(menuId);
+			doFindObjectsByMenuId(menuId);
 		}
 	</script>
 </body>

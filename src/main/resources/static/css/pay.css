@@ -1,0 +1,217 @@
+.font14 {
+    font-size: 14px;
+}
+
+.black9 {
+    color: #999999;
+}
+
+.font24 {
+    font-size: 24px;
+}
+
+.font20 {
+    font-size: 20px;
+}
+
+.black3 {
+    color: #333333;
+}
+
+.red {
+    color: #E5534E;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.white {
+    color: #fff;
+}
+
+.m-pay {
+    width: 100%;
+    margin-top: 70px;
+    background-color: #f1f5f4;
+    padding-bottom: 20px;
+}
+
+.m-pay .pay-bg {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.m-pay .pay-bg .pay-top {
+    height: 50px;
+}
+
+.m-pay .pay-bg .pay-top .return {
+    height: 50px;
+    width: 30px;
+    background: url(../imgs/order/back.png) no-repeat center;
+}
+
+.m-pay .pay-bg .pay-top .title {
+    margin-right: 13px;
+    height: 50px;
+    color: #999999;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.m-pay .pay-bg .pay-top .title .nav-left {
+    margin-right: 15px;
+    display: inline-block;
+    width: 54px;
+    background: url(../imgs/order/nav-line.png) no-repeat center;
+}
+
+.m-pay .pay-bg .pay-top .title .nav-line {
+    display: inline-block;
+    width: 60px;
+    margin: 0 15px;
+    background: url(../imgs/order/nav-line1.png) no-repeat center;
+}
+
+.m-pay .pay-bg .pay-top .title .nav-icon {
+    margin-right: 5px;
+    display: inline-block;
+    width: 20px;
+    background: url(../imgs/order/nav-icon.png) no-repeat center;
+}
+
+.m-pay .pay-bg .pay-top .title .current {
+    color: #54D582;
+}
+
+.m-pay .pay-bg .pay-center {
+    padding: 40px 140px 80px 140px;
+    background: #fff;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-top .space-bottom {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-top .center .address {
+    width: 580px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-top .center .edit {
+    line-height: 30px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-top .center .edit .edit-icon {
+    width: 20px;
+    height: 30px;
+    background: url(../imgs/order/pay-edit.png) no-repeat center center;
+    display: inline-block;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-top .space-bottom {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center {
+    margin-top: 25px;
+}
+
+.m-pay .pay-bg .pay-center .label {
+    width: 90px;
+    display: block;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .margin-top35 {
+    margin-top: 35px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .pay-method {
+    margin-top: 40px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .pay-method .pay-method-list {
+    width: 740px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .pay-method .pay-method-list .item-bg {
+    width: 200px;
+    height: 80px;
+    margin: 0 40px 10px 0;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .pay-method .pay-method-list .item-bg img {
+    margin: 10px 5px auto;
+    float: left;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .pay-method .pay-method-list .item-bg .item-text-height {
+    line-height: 40px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .pay-method .pay-method-list .item-bg .item-text {
+    width: 110px;
+    height: 40px;
+    margin: 20px 0 20px 70px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-center .pay-method .pay-method-list .item-bg .item-text span {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.m-pay .pay-bg .pay-center hr {
+    height: 1px;
+    margin-top: 25px;
+    background: #c8c8c8;
+    border: none;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-bottom {
+    margin-top: 30px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-bottom .other {
+    margin-top: 25px;
+}
+
+.m-pay .pay-bg .pay-input {
+    width: 620px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    padding: 0 20px 0 20px;
+    background: #faf9f3;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    display: block;
+    color: #9e9e9e;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-bottom .tip {
+    margin-top: 5px;
+}
+
+.m-pay .pay-bg .pay-center .pay-center-bottom .bnt {
+    width: 280px;
+    height: 50px;
+    margin-top: 40px;
+    line-height: 50px;
+    background: #E05450;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.ui-next {
+    display: inline-block;
+    width: 20px;
+    background: url(../imgs/common/next.png) no-repeat center;
+}

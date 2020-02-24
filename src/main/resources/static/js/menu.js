@@ -1,16 +1,16 @@
 $(function() {
 	/* 点击切换类型说明,尺寸说明图片 */
 	$(".m-pizza-tip .nav .tap").on("click",changeImg);
-	
+
 	/* 点击类型,尺寸让隐藏区域显示 */
 	$(".m-condition .title .info").on("click",showPizzaTip);
 
 	/* 类型,尺寸说明关闭开关 */
 	$(".m-condition .m-pizza-tip .close").on("click",closePizzaTip);
-	
+
 	/* 商品详细介绍弹出层关闭 */
 	$(".m-pop-detail .close").on("click",closeGoodDetail);
-	
+
 	/*
 	 * $(".m-main").waypoint(function(){ $(".m-main .m-menu
 	 * ul").removeAttr("style","top"); $(".m-main .m-menu
@@ -90,7 +90,19 @@ function popupProductDesc() {
 
 /* 选规格加载订单详情 */
 function toOrderDetail() {
+	var obj = $(this);
 	$(".m-menu-content.right").load("other/orderDetail.html");
+	getGoogImgUrl(obj);
+}
+
+function getGoogImgUrl(obj) {
+	var imgUrl = obj.parent().siblings(".img").children().attr("src");
+	var productId = obj.parent().attr("productid");
+	
+	//console.log("productId",productId);
+	//console.log("imgUrl::",imgUrl);
+	$("#j-menu-content").data("productid",productId);
+	$("#j-menu-content").data("imgUrl",imgUrl);
 }
 
 function doHandleResult(data) {
@@ -112,8 +124,8 @@ function doHandleResult(data) {
 						+ '<span class="font16 font-weight">' + good.price
 						+ '</span>元' + '<span style="color: #7f7f7f;">' + baoZ
 						+ '</span>' + '</div>'
-						+ '<div class="order j-menu-order">'
-						+ '<div class="start ui-bgbtn-green" onclick="toOrderDetail()">开始订餐</div>'
+						+ '<div class="order j-menu-order" productid='+good.id+'>'
+						+ '<div class="start ui-bgbtn-green">开始订餐</div>'
 						+ '</div>' + '</div>';
 
 			});
@@ -122,7 +134,8 @@ function doHandleResult(data) {
 }
 
 //点击菜单项查询对应菜单商品列表
-function doFindObjects(menuId) {
+function doFindObjectsByMenuId(menuId) {
+	if(menuId==null) menuId=1;
 	$("#j-menu-left").data("menuId",menuId);// 保存当前展示的是哪个菜单Id对应的商品列表
 	var url = "/goods/doFindObjects";
 	var params = {
@@ -132,11 +145,12 @@ function doFindObjects(menuId) {
 	if (menuId != 1) {
 		$(".m-condition").addClass("hidden");
 		$(".m-product-list").css("margin-top", 0);
+		$(".empty-container").hide();
 	} else {
 		$(".m-condition").removeClass("hidden");
 		$(".m-product-list").css("margin-top", 88);
 	}
-
+	
 	$.get(url, params, function(result) {
 		if (result.state == 1) {
 			if ($(".m-product-list").empty()) {

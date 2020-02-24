@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>比萨-必胜客宅急送外卖网上订餐官网</title>
+		<link rel="stylesheet" type="text/css" href="../css/head_footer.css" />
+		<link rel="stylesheet" type="text/css" href="../css/pay.css" />
+        <link rel="icon" href="../imgs/common/bsk_favicon.ico">
+	</head>
+	<body>
+		<!-- 头部 -->
+		<div class="m-top">
+			<!-- 头部:使用固定定位-->
+			<div class="box" id="j-top-nav">
+				<a href="index.html">
+					<!-- logo图片 -->
+					<div class="logo left"></div>
+				</a>
+
+				<a href="#">
+					<div class="menu left menu-on">菜单</div>
+				</a>
+
+				<div class="separator left">
+					<!-- 菜单竖线 -->
+				</div>
+
+				<a href="customerCenter.html">
+					<div class="menu left">会员中心</div>
+				</a>
+
+				<div class="start right hidden" id="j-start-order">立即点餐</div>
+				<div class="user right red-hover" id="j-top-coupon">
+					我的卡卷(<span id="j-top-coupon-size">3</span>)
+				</div>
+				<div class="separator right"></div>
+				<div class="user right">
+					<span class="username" title="客户">客户</span>
+					<span class="arrow">&nbsp;</span>
+					<ul>
+						<li class="red-hover" id="j-customer-info">个人资料</li>
+						<li class="red-hover" id="j-order-mng">订单管理</li>
+						<li class="red-hover" id="j-logout">退出登录</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 中间部分 -->
+		<div class="m-pay">
+			<div class="pay-bg">
+				<div class="pay-top">
+					<div class="return cursor left" id="j-pay-back"></div>
+					<div class="title right">
+						<span class="nav-left">&nbsp;</span>
+						<span class="cursor" id="j-pay-back2">确认订单与优惠</span>
+						<span class="nav-line">&nbsp;</span>
+						<span class="nav-icon">&nbsp;</span>
+						<span class="current">结算</span>
+						<span class="nav-line">&nbsp;</span>
+						<span>完成</span>
+					</div>
+				</div>
+				<div class="pay-center">
+					<div class="pay-center-top">
+						<div class="top space-bottom"><span class="font14 black9">配餐地址</span></div>
+						<div class="left center space-bottom">
+							<span class="font24 black3 left address">海华厅(南京东路505号海仑宾馆5层)会湖公园25号</span>
+							<span id="j-edit" class="font14 black9 right edit cursor">修改
+								<span class="edit-icon">&nbsp;</span>
+							</span>
+						</div>
+						<div class="font14 black9 bottom space-bottom">
+							<span class="red">外送&nbsp;&nbsp;</span>
+							<span>预计<span class="red">40分钟</span>后送达</span>
+						</div>
+						<hr>
+					</div>
+
+					<div class="font14 black9 pay-center-center">
+						<div class="name">
+							<span class="left label">顾客姓名</span>
+							<span class="black3">XXX 先生</span>
+						</div>
+						<div class="phone margin-top35">
+							<span class="left label">联系电话</span>
+							<span class="black3">18677317334</span>
+						</div>
+						<div class="pay-method">
+							<span>总共金额&nbsp;&nbsp;&nbsp;&nbsp;<span class="font20 red">138</span><span class="black3">元</span></span>
+							<span>&nbsp;&nbsp;&nbsp;&nbsp;选择支付方式</span>
+							<div class="black3 pay-method-list">
+								<div id="j-pay-type8" class="left item-bg cursor">
+									<img src="../imgs/order/pay-icon2.png">
+									<div class="item-text item-text-height" style="line-height:20px;">
+										<p><span>必胜客礼品卡</span>
+										</p>
+										<p class="red">余额0元 </p>
+									</div>
+								</div>
+								<div id="j-pay-type6" class="left item-bg cursor">
+									<img src="../imgs/order/pay-icon2.png">
+									<div class="item-text item-text-height">
+										<spn>心意美食卡支付</spn>
+									</div>
+								</div>
+								<div id="j-pay-type2" class="left item-bg cursor">
+									<img src="../imgs/order/pay-icon2.png">
+									<div class="item-text item-text-height">
+										<spn><span style="line-height:16px;">必胜客宅急送美食劵支付（不足部分支付现金）</span></spn>
+									</div>
+								</div>
+								<div id="j-pay-type4" class="left item-bg cursor">
+									<img src="../imgs/order/pay-icon3.png">
+									<div class="item-text item-text-height">
+										<spn>微信支付</spn>
+									</div>
+								</div>
+								<div id="j-pay-type5" class="left item-bg cursor">
+									<img src="../imgs/order/pay-icon4.png">
+									<div class="item-text item-text-height">
+										<spn>支付宝支付</spn>
+									</div>
+								</div>
+								<div id="j-pay-type3" class="left item-bg cursor">
+									<img src="../imgs/order/pay-icon6.png">
+									<div class="item-text item-text-height">
+										<spn id="j-bank-name">银行卡支付</spn>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<hr />
+					</div>
+					<div class="font14 black9 pay-center-bottom">
+						<div class="other">
+							<span class="label black3">备注</span>
+							<input type="text" name="other" id="j-input-other" class="font14 black3 pay-input" maxlength="26" autocomplete="off"
+							 placeholder="比如饮料去冰，限13个字以内">
+							<div class="font10 tip"><span>友情提示：网络订餐不提供订单修改和取消功能，请提交前仔细核实订单内容。</span></div>
+						</div>
+						<div id="j-bnt-submit" class="font18 white cursor bnt">
+							<span>提交订单</span><span class="ui-next">&nbsp;</span>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 尾部 -->
+		<div class="m-foot">
+			<div class="content">
+				<!-- 底部内容区 -->
+
+				<div class="content-logo">
+					<!-- 底部logo行 -->
+					<a href="#">
+						<div class="logo">
+							<!-- 底部logo图片 -->
+						</div>
+					</a>
+					<div class="phone strong-color">
+						<!-- 底部电话 -->
+						4008-123-123
+					</div>
+				</div>
+
+				<!-- 底部送餐说明 -->
+				<div class="content-legal">
+					必胜客宅急送不同城市或不同餐厅的送餐菜单和价格有所不同。 不同时段产品品项及价格有所不同。工作日特惠午餐及下午茶产品只在部分时段供应。详情以输入送餐地址后显示的实际供应的菜单为准。
+				</div>
+
+				<div class="contont-one">
+					<!-- 底部菜单列 -->
+					<div class="link">
+						<ul>
+							<li class="menu"><a href="#">当季特选</a></li>
+							<li><a href="#">优惠套餐</a></li>
+							<li>|</li>
+							<li><a href="#">比萨</a></li>
+							<li>|</li>
+							<li><a href="#">意面</a></li>
+							<li>|</li>
+							<li><a href="#">饭食</a></li>
+							<li>|</li>
+							<li><a href="#">米线</a></li>
+							<li>|</li>
+							<li><a href="#">小吃</a></li>
+							<li>|</li>
+							<li><a href="#">饮料</a></li>
+							<li>|</li>
+							<li><a href="#">汤</a></li>
+							<li>|</li>
+							<li><a href="#">沙拉和鲜蔬</a></li>
+							<li>|</li>
+							<li><a href="#">甜点</a></li>
+							<li class="margin-right"><a href="">帮助中心</a></li>
+							<li class="margin-right"><a href="">会员中心</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="content-two clear-fix">
+					<div class="middle clear-fix">
+						<div class="left yum-name">
+							<a href="#">百胜咨询（上海）有限公司</a>
+						</div>
+						<div class="left">
+							<ul>
+								<li><a href="#">必胜客会员服务协议</a></li>
+								<li>|</li>
+								<li><a href="#">用户协议</a></li>
+								<li>|</li>
+								<li><a href="#">隐私政策</a></li>
+								<li>|</li>
+								<li><a href="">法律条款</a></li>
+								<li>|</li>
+								<li><a href="">经营公示</a></li>
+								<li>|</li>
+								<li><a href="">联系我们</a></li>
+								<li>|</li>
+								<li><a href="">加入我们</a></li>
+							</ul>
+						</div>
+						<div class="other right">
+							<a href="">沪公网安备 31010402003289号&nbsp;</a>
+							<a href="#">沪ICP备&nbsp;17029211号-1</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

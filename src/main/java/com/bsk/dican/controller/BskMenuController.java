@@ -21,5 +21,6 @@ public class BskMenuController {
 	public void doFindObjects(Model model) {
 		List<BskMenu> menus = bskMenuService.findObjets();
 		model.addAttribute("menus", menus);
+		
 	}
 }

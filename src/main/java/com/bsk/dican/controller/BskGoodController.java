@@ -18,11 +18,17 @@ public class BskGoodController {
 	private BskGoodService bskGoodService;
 	
 	@RequestMapping("/doFindObjects")
-	public JsonResult doFindObjects(Integer menuId) {
+	public JsonResult<List<BskGood>> doFindObjects(Integer menuId) {
 		System.err.println("menuId::::" + menuId);
 		List<BskGood> goods = bskGoodService.findObjects(menuId);
 		
 		return JsonResult.ok(goods);
+	}
+	
+	@RequestMapping("/doFindObjectById")
+	public JsonResult<BskGood> doFindObjectById(Integer id) {
+		BskGood bskGood = bskGoodService.findObjectById(id);
+		return JsonResult.ok(bskGood);
 	}
 	
 }

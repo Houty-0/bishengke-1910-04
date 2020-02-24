@@ -7,8 +7,7 @@
 			<div class="banner banner-mealdeal" id="j-menu-banner">
 				<div class="banner-item">
 					<ul>
-						<li style="display: list-item;"><img
-							src="../imgs/products/pizza/182_92284.jpg"></li>
+						<li style="display: list-item;"><img src=""></li>
 					</ul>
 				</div>
 				<div class="banner-nav"></div>
@@ -32,12 +31,13 @@
 	<div class="right-content">
 		<div class="fix-info" style="top: 45px">
 			<div class="menu-info">
-				<span class="name">新奥尔良比萨2人餐</span> <span class="type"> <span
-					class="ui-hot ui-hot0"></span>
+				<span class="name">新奥尔良比萨2人餐</span> 
+                <span class="type"> 
+                  <span class="ui-hot ui-hot0"></span>
 				</span>
 			</div>
 			<div class="price-info">
-				<span class="unit"></span> <span class="price" menutype="5">79.0</span>
+				<span class="unit"></span> <span class="price" id="goodPrice" menutype="5"></span>
 				<span class="unit">元</span> <span class="unit j-up-show">起</span> <span
 					class="labelfour_desc">比单品总价值最多省17元</span>
 			</div>
@@ -61,4 +61,21 @@
 	</div>
 
 </div>
+<script>
+    $(function() {
+    	flyToShoppingBox();
+    	getGoogInfo();
+    	
+    	/* 商品数量加减方法 */
+    	$(".right-content .mealeal-add .add-minus").on("click", decrNum);
+    	$(".right-content .mealeal-add .add-plus").on("click", addNum);
+    	
+    	/* 添加商品到购物车 */
+    	$("#j-mealdeal-add").on("click",addToCart);
+    	
+    	//var imgUrl = $("#j-menu-content").data("imgUrl");
+    	//$("#j-menu-banner .banner-item img").attr("src",imgUrl);
+    });
+    </script>
+    
 

@@ -16,5 +16,11 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="findObjectById" resultType="com.bsk.dican.entity.BskGood">
+		SELECT menu_id menuId,name,note,price,img_url imgUrl,
+		bao_zhuang baoZhuang,type,size,is_new isNew
+		FROM bsk_goods WHERE id=#{id}
+	</select>
 
 </mapper>

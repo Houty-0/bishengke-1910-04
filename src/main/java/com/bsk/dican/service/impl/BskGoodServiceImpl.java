@@ -21,4 +21,10 @@ public class BskGoodServiceImpl implements BskGoodService{
 		return list;
 	}
 
+	@Override
+	public BskGood findObjectById(Integer id) {
+		BskGood bskGood = bskGoodDao.findObjectById(id);
+		return bskGood;
+	}
+
 }
