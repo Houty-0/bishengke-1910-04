@@ -24,6 +24,7 @@ public class BskUserController {
 	@Autowired
 	private BskUserService bskUserService;
 
+	//用户注册
 	@RequestMapping("/doSaveObject")
 	public JsonResult doSaveObject(BskUser bskUser,HttpSession session,String code) {
 		System.out.println("bskUser:" + bskUser);
@@ -37,6 +38,7 @@ public class BskUserController {
 		return JsonResult.ok("注册成功");
 	}
 
+	//用户登录
 	@RequestMapping("/doLogin")
 	public JsonResult doLogin(String phone, String password, HttpServletResponse response, HttpSession session) {
 		
@@ -54,11 +56,11 @@ public class BskUserController {
 		return JsonResult.ok("登录成功");
 	}
 
-	//可以通过范围这个路径拿到用户的信息
-	@RequestMapping("getMessage")
+	//可以通过访问这个路径拿到用户的信息
+	@RequestMapping("/getMessage")
 	public JsonResult getMessage(HttpServletRequest httpServletRequest,HttpSession session){
 		Cookie[] cookies = httpServletRequest.getCookies();
-		String id=(String)session.getAttribute("id");
+		String id=session.getAttribute("id").toString();
 		for (Cookie cookie: cookies) {
 			String userId=cookie.getValue();
 			if(id.equals(userId)){
@@ -69,4 +71,6 @@ public class BskUserController {
 		}
 		return JsonResult.error("用户不存在");
 	}
+
+
 }

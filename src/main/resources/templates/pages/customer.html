@@ -6,9 +6,18 @@
     <link rel="stylesheet" type="text/css" href="../css/head_footer.css"/>
     <link rel="stylesheet" type="text/css" href="../css/addr.css"/>
     <link rel="stylesheet" type="text/css" href="../css/kuCity.css">
+    <!--引用百度地图api-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=iO7PuQhcc4Ut3psiPfffUuAbDKx9IiAt"></script>
     <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../js/kuCity.js"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/customer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/baidumap.js" type="text/javascript" charset="utf-8"></script>
+
     <link rel="icon" href="../imgs/common/bsk_favicon.ico">
+    <style type="text/css">
+        #r-result{width:100%;}
+    </style>
 </head>
 <body>
 <!-- 头部 -->
@@ -86,19 +95,31 @@
                     <div class="addr-box-line" id="j-mainAddressWrap">
                         <span class="text-w100">送餐地址</span>
                         <div class="text-input05">
-                            <input type="text" id="j-mainaddress" placeholder="请输入详细送餐地址">
+                            <div id="l-map" style="display: none;"></div>
+                            <input type="text" id="j-mainaddress" placeholder="请输入路名或小区名，如东方路300号">
+                            <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="addr-box-line" id="j-mainAddr">
+                        <span class="text-w100">详细地址</span>
+                        <div class="text-input05">
+                            <input type="text" id="j-mainaddr11" style="width: 400px" placeholder="请输入详细地址，如16楼301室">
                         </div>
                     </div>
                     <div class="addr-box-line j-address-else">
                         <span class="text-w100">订餐人/性别</span>
                         <div class="text-input06">
                             <input type="text" name="text" id="j-desc-input-name" style="width: 140px;" maxlength="5">
-                            <input type="text" name="text" class="input-readonly-address cursor" id="j-desc-input-sex"
-                                   value="先生" style="width: 60px;margin-left: 60px;" readonly="readonly">
-                            <div id="j-desc-bnt-sex" class="cursor customer-address-sex hidden" style="color: #b2b2b2;">
-                                <p gender="0">先生</p>
-                                <p gender="1">女士</p>
-                            </div>
+                            <!--<input type="select" name="text" class="input-readonly-address cursor" id="j-desc-input-sex"-->
+                                   <!--value="先生" style="width: 60px;margin-left: 60px;" readonly="readonly">-->
+                            <!--<div id="j-desc-bnt-sex" class="cursor customer-address-sex hidden" style="color: #b2b2b2;">-->
+                                <!--<p gender="0">先生</p>-->
+                                <!--<p gender="1">女士</p>-->
+                            <!--</div>-->
+                            <select  class="text-input06 " style="margin-left: 60px;height: 36px;width: 76px;padding-left: 16px;border-color: silver;color: #b2b2b2" id="order-gender">
+                                <option value="先生">先生</option>
+                                <option value="女士">女士</option>
+                            </select>
                         </div>
                     </div>
                     <div class="addr-box-line j-address-else">
@@ -112,8 +133,9 @@
                         <span class="text-w01">如此处与路名或小区名填写内容有矛盾，视为无效订单,<br>此处仅支持中文输入地址。</span>
                     </div>
                     <div class="act-botton" id="j-act-botton">
-                        <div class="save-button">
-                            <a href="" id="j-addr-save-btn">保存</a>
+                        <div class="save-button" >
+                            <a id="j-addr-save-btn">保存</a>
+                            <!--保存-->
                         </div>
                         <div class="cancel-button">
                             <a href="" id="j-addr-cancel-btn">取消</a>
@@ -220,3 +242,4 @@
 </div>
 </body>
 </html>
+

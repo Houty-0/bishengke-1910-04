@@ -54,6 +54,10 @@
         </div>
         <input type="text" class="login-input" id="j-input-phone" placeholder="请输入您的手机号"/>
     </div>
+    <!--提示信息-->
+    <div class="input-error input-errorPhone">
+        <!--插入错误信息-->
+    </div>
     <div class="pwd-pwd">
         <div class="pwd-id_img">
             <img src="../imgs/login_register/pwd-pwd.png">
@@ -61,11 +65,12 @@
         <input type="password" class="login-input" id="pwd-input_id" placeholder="请输入密码"/> <img
             src="../imgs/login_register/pwd-see.png">
     </div>
-    <div class="pwd-code">
+    <!--提示信息-->
+    <div class="input-error input-errorPassword">
 
     </div>
     <div class="pwd-tip">
-        <input type="checkbox"/>记住我
+        <input type="checkbox" id="rememberMe"/>记住我
         <div style="float: right; margin-right: 60px;">忘记密码</div>
     </div>
 
@@ -90,19 +95,24 @@
                class="ui-input-text ui-input-color inputcss" maxlength="11"
                placeholder="请输入手机号">
     </div>
+    <div class="input-error input-errorPhone">
 
+    </div>
     <!-- 密码输入框 -->
     <div class="input-box line-bottom">
         <div class="left icon-content icon-password"></div>
         <input type="password" id="pwd" class="ui-input-text input-password"
                placeholder="请输入密码" style="display: block;">
     </div>
+    <div class="input-error input-errorPassword" id="input-errorPwd">
+
+    </div>
 
     <!-- 短信验证码 -->
     <div class="m-register j-sms-login input-box">
         <div class="left icon-content icon-check"></div>
         <input type="text" class="ui-input-text left input-code inputcss"
-               maxlength="4" id="input-code" placeholder="请输入验证码">
+               maxlength="4" id="#input-code" placeholder="请输入验证码">
         <!--<div class="right font14 white bnt-sms-code cursor">-->
         <img alt="验证码" src="/getSecurityCode" title="点击刷新" onclick="this.src='/getSecurityCode?t='+Math.random()">
         <!--</div>-->
@@ -110,17 +120,18 @@
 
     <!-- 忘记密码,记住我 -->
     <div class="login-me">
-		<span class="login-remember-me"> <input type="checkbox"
-                                                name="rememberMe" id="j-remember-me"/> <label
+		<span class="login-remember-me">
+            <input type="checkbox" name="rememberMe" id="j-remember-me"/> <label
                 for="rememberMe">记住我</label>
-		</span> <span class="font12 red right login-forget-password"> <a
+		</span>
+        <span class="font12 red right login-forget-password"> <a
             href="javascript:void(0)">忘记密码</a>
 		</span>
     </div>
 
     <!-- 登录按钮 -->
     <a href="javascript:void(0)">
-        <div class="font14 white login cursor login-red">下一步</div>
+        <div class="font14 white register login cursor login-red">下一步</div>
     </a>
     <div class="dialog-close" style="top: 10px; left: 10px;"></div>
 
@@ -176,12 +187,86 @@
         $(".login").on("click", register);
 
         /* 用户登录 */
-        $(".pwd-inner").on("click", login)
+        $(".pwd-inner").on("click", login);
+
+        $("#j-input-phone,#pwd-input_id").focus(hiddenError);
+
+        $("#j-input-phone,#pwd-input_id").blur(checkoutPhone);
+
+        /*校验注册信息*/
+        $("#phone,#pwd").focus(hiddenError);
+
+        $("#phone,#pwd").blur(checkoutPhone1);
 
     });
+    //当获得焦点时隐藏提示的错误信息
+    function hiddenError() {
+        $(".pwd").css("height", "501px");
+        $("#rememberMe").css("margin-left","0");
+        $(".input-error").css("display","none");
+    }
 
+
+
+    //校验手机号码和密码
+    function checkoutPhone() {
+        var phone=$("#j-input-phone").val();
+        var pwd = $("#pwd-input_id").val();
+        //校验手机号
+        if (phone=="" ){
+            $(".pwd").css("height", $(".pwd").height() + 30);
+            $(".input-errorPhone").css("display","block");
+            $(".input-errorPhone").html("请输入手机号码");
+        }else if(!(/^1[3456789]\d{9}$/.test(phone))){
+            $(".pwd").css("height", $(".pwd").height() + 30);
+            $(".input-errorPhone").css("display","block");
+            $(".input-errorPhone").html("请输入正确的手机号码");
+        }
+        //校验密码
+        if (pwd=="") {
+            $(".pwd").css("height", $(".pwd").height() + 30);
+            $(".input-errorPassword").css("display","block");
+            $(".input-errorPassword").css("text-align","left");
+            $("#rememberMe").css("margin-left","116px");
+            $(".input-errorPassword").html("请输入密码");
+        }else if (pwd.length<6){
+            $(".pwd").css("height", $(".pwd").height() + 30);
+            $(".input-errorPassword").css("display","block");
+            $(".input-errorPassword").css("text-align","left");
+            $("#input-errorPwd").css("text-align","center");
+            $("#rememberMe").css("margin-left","116px");
+            $(".input-errorPassword").html("输入密码为6~16个数字或字母");
+        }
+    }
+
+    /*校验注册手机格式*/
+    function checkoutPhone1() {
+        var phone = $("#phone").val();
+        var pwd = $("#pwd").val();
+        //校验手机号
+        if (phone=="" || !(/^1[3456789]\d{9}$/.test(phone))){
+            $(".pwd").css("height", $(".pwd").height() + 30);
+            $(".input-errorPhone").css("display","block");
+            $(".input-errorPhone").html("请输入手机号码");
+        }
+        //校验密码
+        if (pwd=="") {
+            $(".pwd").css("height", $(".pwd").height() + 30);
+            $(".input-errorPassword").css("display","block");
+            $(".input-errorPassword").css("text-align","left");
+            $("#rememberMe").css("margin-left","116px");
+            $(".input-errorPassword").html("请输入密码");
+        }else if (pwd.length<6){
+            $(".pwd").css("height", $(".pwd").height() + 30);
+            $(".input-errorPassword").css("display","block");
+            $(".input-errorPassword").css("text-align","left");
+            $("#input-errorPwd").css("text-align","center");
+            $("#rememberMe").css("margin-left","116px");
+            $(".input-errorPassword").html("输入密码为6~16个数字或字母");
+        }
+    }
+    //登录方法
     function login() {
-        //debugger
         // 1.获取用户手机
         var phone = $("#j-input-phone").val();
         // 2.获取用户密码
@@ -206,7 +291,7 @@
             } else {
                 alert("login fail!!!");
             }
-        })
+        });
     }
 
     // function doHandleResult(user){
@@ -249,7 +334,6 @@
         var params = {"phone": phone, "password": pwd, "code": code};
 
         $.post(url, params, function (result) {
-        	console.log("registerResult",result);
             if (result.state == 1) {
                 alert(result.data);
                 window.location.href = "../customer.html?";
@@ -257,6 +341,5 @@
                 alert(result.message);
             }
         });
-
     }
 </script>

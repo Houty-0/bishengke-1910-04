@@ -37,11 +37,11 @@
         </a>
 
         <div class="start right" id="j-start-order">立即点餐</div>
-        <div class="user right red-hover  hidden" id="j-top-coupon">
+        <div class="user right red-hover" id="j-top-coupon">
             我的卡卷(<span id="j-top-coupon-size">3</span>)
         </div>
         <div class="separator right"></div>
-        <div class="user hidden right">
+        <div class="user right">
             <span class="username" title="客户">客户</span> <span class="arrow">&nbsp;</span>
             <ul>
                 <li class="red-hover" id="j-customer-info">个人资料</li>
@@ -170,7 +170,26 @@
 <script type="text/javascript">
     $(function () {
         $("#j-customer-center-right").load("/customer/customerIndex.html");
+        getUserMessage();
     })
+    function getUserMessage() {
+        $.ajax({
+            url:"/user/getMessage",
+            type:"GET",
+            success:function (result) {
+                var data=result.data;
+                var name=data.username;
+                if(data.gender==0){
+                    var gender='女士';
+                }else if(data.gender==1){
+                    gender='先生';
+                }
+                var coupon=data.coupon;
+                var vj=data.vj;
+                var balance=data.balance;
+            }
+        });
+    }
 </script>
 </body>
 </html>

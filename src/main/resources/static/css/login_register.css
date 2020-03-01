@@ -171,7 +171,7 @@
 }
 
 .pwd-tip input {
-	margin-left: -12px;
+	margin-left: 0px;
 	border-radius: 0;
 }
 
@@ -351,4 +351,14 @@
 	cursor: pointer;
 	background: url(../imgs/login_register/close.png) no-repeat;
 	z-index: 8000;
+}
+.input-error{
+	display: none;
+	height: 30px;
+	top: -6px;
+	background-image: url(../imgs/login_register/input-error.png);
+	color: #E5534E;
+	font-size: 12px;
+	text-align: center;
+	line-height: 30px;
 }
