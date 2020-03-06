@@ -50,6 +50,7 @@ public class BskUserController {
 		BskUser user = bskUserService.findObjectByPhone(phone);
 
 		Cookie cookie = new Cookie("id", user.getId().toString());
+		cookie.setPath("/");
 		response.addCookie(cookie);
 		session.setAttribute("id", user.getId().toString());
 

@@ -25,10 +25,7 @@ function addToCart(){
     // 判断购物盒中是否已有本次要加入的商品
     function getGoodProductId(productid){
     	var productIds = $("#j-shopping-box-quantity").data("productIds");
-    	//console.log("productIds----",productIds);
-    	
     	var flag = 0;
-    	
     	$(productIds).each(function(index) {
         	if(productIds[index]==productid){
         		flag = 1;
@@ -54,21 +51,28 @@ function addToCart(){
     	var imgUrl = $("#j-menu-banner .banner-item img").attr("src");
     	var price = getGoodPrice();
     	var name = $(".right-content .menu-info .name").html();
-    	var html = '<div class="item clear-fix" productid="'+productid+'" sizeid="000">'+
-					'<div class="m-p-img left">' +
-					'<img src="'+ imgUrl +'"></div>' +
-					'<div class="m-p-desc left"><div class="middle">' +
-					'<span>'+name+'</span><br /> <span class="price red">'+price+'</span><span class="red">元</span>' +
-					'</div></div>' +
-					'<div class="m-p-calc right">' +
-					'<div class="minus ui-minus-red j-minus"></div>'+
-					'<div class="num">' +
-					'<input type="text" value="'+num+'" readonly="readonly" />' +
-					'</div><div class="j-plus plus ui-plus-grey"></div></div>' +
-					'<div class="m-p-tip" style="display: block;">' +
-					'<span>新奥尔良风情烤肉比萨(纯珍普通装)*1</span> <span>热柠檬红茶((标准杯))*1</span> <span>冰柠檬红茶((标准杯))*1</span>'+
-					'</div></div>';
+    	
+    	var html = createShoppingBoxGoodHtml(productid,imgUrl,name,price,num);
+    	
 		$("#delivery").before(html);
+    }
+    
+    // 生成购物盒单个商品的html代码的方法
+    function createShoppingBoxGoodHtml(productid,imgUrl,name,price,num){
+    	var html = '<div class="item clear-fix" productid="'+productid+'" sizeid="000">'+
+		'<div class="m-p-img left">' +
+		'<img src="'+ imgUrl +'"></div>' +
+		'<div class="m-p-desc left"><div class="middle">' +
+		'<span>'+name+'</span><br /> <span class="price red">'+price+'</span><span class="red">元</span>' +
+		'</div></div>' +
+		'<div class="m-p-calc right">' +
+		'<div class="minus ui-minus-red j-minus"></div>'+
+		'<div class="num">' +
+		'<input type="text" value="'+num+'" readonly="readonly" />' +
+		'</div><div class="j-plus plus ui-plus-grey"></div></div>' +
+		'<div class="m-p-tip" style="display: block;">' +
+		'</div></div>';
+    	return html;
     }
     
     // 获取购物盒对应商品的productid
@@ -167,7 +171,7 @@ function addToCart(){
     	$(".right-content .mealeal-add .add-num input").val(++num);
     }
     
-    function getGoogInfo() {
+    function getGoodInfo() {
     	var productid = $("#j-menu-content").data("productid");
     	//console.log("productid",productid);
     	var params = {"id":productid};
@@ -189,28 +193,4 @@ function addToCart(){
     	$(".right-content .price-info .price").html(good.price);
     }
     
-    function flyToShoppingBox(){
-    	var offset = $("#j-shopping-box-quantity").offset();  //结束的地方的元素
-        $(".add").click(function(event){   //是$(".addcar")这个元素点击促发的 开始动画的位置就是这个元素的位置为起点
-          var addcar = $(this);
-          //var img = addcar.parent().find('img').attr('src');
-          var img = $(".banner-item img").attr('src');
-          var flyer = $('<img class="u-flyer" src="'+img+'" width="160" height="160" style="border-radius: 8px;z-index:9999">');
-          flyer.fly({
-            start: {
-              left: event.pageX-540,
-              top: event.pageY+50
-            },
-            end: {
-              left: offset.left+40,
-              top: offset.top,
-              width: 0,
-              height: 0
-            },
-            onEnd: function(){
-              //$("#j-shopping-box-quantity").show().animate({width: '250px'}, 200).fadeOut(1000);
-              this.destory();
-            }
-          });
-        });
-    }
+    

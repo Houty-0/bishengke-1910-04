@@ -11,6 +11,9 @@ $(function() {
 	/* 商品详细介绍弹出层关闭 */
 	$(".m-pop-detail .close").on("click",closeGoodDetail);
 
+	// 检查用户是否登陆
+	checkLogin();
+	
 	/*
 	 * $(".m-main").waypoint(function(){ $(".m-main .m-menu
 	 * ul").removeAttr("style","top"); $(".m-main .m-menu
@@ -22,6 +25,16 @@ $(function() {
 	 */
 
 });
+
+function checkLogin(){
+	var _id = $.cookie('id');
+	if(!_id){
+		return;
+	}
+	$("#j-start-order").hide();
+	$("#j-top-coupon").removeClass("hidden");
+	$("#j-top-nav .user").removeClass("hidden");
+}
 
 /* 点击类型,尺寸让隐藏区域显示 */
 function showPizzaTip() {
@@ -88,10 +101,10 @@ function popupProductDesc() {
 	$(".m-pop-detail").show();
 }
 
-/* 选规格加载订单详情 */
+/* 选规格加载单个商品页面 */
 function toOrderDetail() {
 	var obj = $(this);
-	$(".m-menu-content.right").load("other/orderDetail.html");
+	$(".m-menu-content.right").load("other/goodDetail.html");
 	getGoogImgUrl(obj);
 }
 
@@ -99,14 +112,20 @@ function getGoogImgUrl(obj) {
 	var imgUrl = obj.parent().siblings(".img").children().attr("src");
 	var productId = obj.parent().attr("productid");
 	
-	//console.log("productId",productId);
-	//console.log("imgUrl::",imgUrl);
 	$("#j-menu-content").data("productid",productId);
 	$("#j-menu-content").data("imgUrl",imgUrl);
 }
 
 function doHandleResult(data) {
-	var products = "";
+	var html = "";
+	var text = "开始订餐";
+	var _id=$.cookie("id");
+	var cls = "start";
+	if(_id!=null){
+		text="选规格";
+		cls = "btn";
+	}
+	
 	$(data).each(function(index, good) {
 				var baoZ = good.baoZhuang;
 				if (baoZ == null) {
@@ -114,7 +133,7 @@ function doHandleResult(data) {
 				} else {
 					baoZ = "/" + baoZ;
 				}
-				products += '<div class="product" value="' + good.note + '">'
+				html += '<div class="product" value="' + good.note + '">'
 						+ '<div class="img cursor" style="height: 139px;">'
 						+ '<img src="' + good.imgUrl + '">' + '</div>'
 						+ '<div class="title">' + good.name + '</div>'
@@ -125,11 +144,11 @@ function doHandleResult(data) {
 						+ '</span>元' + '<span style="color: #7f7f7f;">' + baoZ
 						+ '</span>' + '</div>'
 						+ '<div class="order j-menu-order" productid='+good.id+'>'
-						+ '<div class="start ui-bgbtn-green">开始订餐</div>'
+						+ '<div class="'+cls+' ui-bgbtn-green">'+text+'</div>'
 						+ '</div>' + '</div>';
 
 			});
-	return products;
+	return html;
 	
 }
 

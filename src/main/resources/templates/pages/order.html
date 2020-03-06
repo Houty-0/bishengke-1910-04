@@ -1,288 +1,317 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>比萨-必胜客宅急送外卖网上订餐官网</title>
-		<link rel="stylesheet" type="text/css" href="../css/head_footer.css" />
-		<link rel="stylesheet" type="text/css" href="../css/orderdetail.css" />
+  <head>
+    <meta charset="utf-8">
+    <title>比萨-必胜客宅急送外卖网上订餐官网</title>
+    <link rel="stylesheet" type="text/css" href="../css/head_footer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/orderdetail.css" />
         <link rel="icon" href="../imgs/common/bsk_favicon.ico">
-	</head>
-	<body>
-		<!-- 头部 -->
-		<div class="m-top">
-			<!-- 头部:使用固定定位-->
-			<div class="box" id="j-top-nav">
-				<a href="index.html">
-					<!-- logo图片 -->
-					<div class="logo left"></div>
-				</a>
+  </head>
+  <body>
+    <!-- 头部 -->
+    <div class="m-top" th:insert="other/head :: headDiv"></div>
 
-				<a href="#">
-					<div class="menu left menu-on">菜单</div>
-				</a>
+    <!-- 中间部分 -->
+    <div class="m-main bgcolor-light-blue" id="j-order-promotion" style="min-height: 392px;">
+      <script type="text/javascript">
+        /* $(function(){
+                order.init();
+            }); */
+      </script>
+      <input type="hidden" id="j-promListFlag" name="promListFlag" value="false">
+      <div class="m-order clear-fix">
 
-				<div class="separator left">
-					<!-- 菜单竖线 -->
-				</div>
+        <div class="nav clear-fix">
+          <div class="return cursor left" id="j-return-menu"></div>
+          <div class="title right">
+            <span class="nav-left">&nbsp;</span>
+            <span class="nav-icon">&nbsp;</span>
+            <span class="current">确认订单与优惠</span>
+            <span class="nav-line">&nbsp;</span>
+            <span>结算</span>
+            <span class="nav-line">&nbsp;</span>
+            <span>完成</span>
+          </div>
+        </div>
 
-				<a href="customerCenter.html">
-					<div class="menu left">会员中心</div>
-				</a>
+        <!-- 本单可享优惠 -->
+        <div class="promotion left bgcolor-white">
+          <div class="my-coupon clear-fix">
+            <div class="label left">我的优惠券</div>
+            <div class="num left cursor" id="j-my-coupon">
+              <span class="green font28" id="j-order-coupon-size">3</span>张
+            </div>
+            <div class="btn right cursor ui-bgbtn-green" id="j-my-coupon2">查看</div>
+          </div>
+          <div class="promotion-code">
+            <div class="desc"><span>我有优惠代码</span><span class="show-input-div cursor j-show-input-div"></span></div>
+            <div class="hidden j-input-promotion-div">
+              <input type="text" id="j-input-prom-code" value="输入优惠代码" onfocus="if (value =='输入优惠代码'){value =''}" onblur="if (value ==''){value='输入优惠代码'}">
+              <a class="ui-bgbtn-green disabled right" href="javascript:;" id="j-submit-prom-code">提交</a>
+            </div>
+          </div>
+          <div class="space"></div>
+          <div class="promotion-box">
+            <div class="title">本单可享优惠</div>
+            <ul>
+              <input type="hidden" name="promotion_msg" msgtype="0" value="">
+              <li></li>
+            </ul>
 
-				<div class="start right hidden" id="j-start-order">立即点餐</div>
-				<div class="user right red-hover" id="j-top-coupon">
-					我的卡卷(<span id="j-top-coupon-size">3</span>)
-				</div>
-				<div class="separator right"></div>
-				<div class="user right">
-					<span class="username" title="客户">客户</span>
-					<span class="arrow">&nbsp;</span>
-					<ul>
-						<li class="red-hover" id="j-customer-info">个人资料</li>
-						<li class="red-hover" id="j-order-mng">订单管理</li>
-						<li class="red-hover" id="j-logout">退出登录</li>
-					</ul>
-				</div>
+          </div>
+        </div>
 
-			</div>
-		</div>
+        <!-- 订单详情 -->
+        <div class="detail right bgcolor-white">
+          <div class="title">订单详情</div>
+          <div class="subtotal" id="j-order-subtotal" style="display: block;">
+            <div class="item">比萨<span class="red num">0</span>份</div>
+            <div class="item left-border">其他主食<span class="red num">0</span>份</div>
+            <div class="item left-border">小食<span class="red num">0</span>份</div>
+            <div class="item left-border">汤饮<span class="red num">0</span>份</div>
+          </div>
+          <div class="m-order-box">
+            <div class="head clear-fix">
+              <span class="desc left">餐品和单价</span>
+              <span class="num left">数量</span>
+              <span class="total right">小计</span>
+            </div>
+            <div class="order-list">
+                            <form id="form">
+                              <input type="hidden" name="userId" th:value="${order.userId}">
+                              <input type="hidden" name="username" th:value="${order.username}">
+                              <input type="hidden" name="phone" th:value="${order.phone}">
+                              <input type="hidden" name="orderType" th:value="${order.orderType}">
+                              <input type="hidden" name="city" th:value="${order.city}">
+                              <input type="hidden" name="addr" th:value="${order.addr}">
+                            </form>
+              <ul>
+                <!-- 订单详情 -->
+                <li th:each="good : ${order.bskOrderGoods}" class="m-order-item clear-fix j-order-item" itemid="" th:productid="${good.goodId}" baseid="" sizeid="" itemtype="">
+                  <div class="img left">
+                    <div class="middle">
+                      <img th:src="${good.picPath}" onerror="" alt="">
+                    </div>
+                  </div>
+                  <div class="desc-box left">
+                    <div class="middle ">
+                      <span class="j-order-item-desc" th:text="${good.title}"></span><br>
+                      <span class="red" th:text="${good.price}"></span>
+                      <span class="grey"><br></span>
+                    </div>
+                  </div>
+                  <div class="calc left">
+                    <div class="m-order-calc" itemid="1581592893062147036">
+                      <div class="minus ui-minus-red j-minus"></div>
+                      <div class="num">
+                        <input type="text" th:value="${good.num}" readonly="readonly">
+                      </div>
+                      <div class="plus ui-plus-grey j-plus"></div>
+                    </div>
+                  </div>
+                  <div class="money right red">
+                    <span class="price" th:text="${good.totalPrice}"></span>元
+                  </div>
 
-		<!-- 中间部分 -->
-		<div class="m-main bgcolor-light-blue" id="j-order-promotion" style="min-height: 392px;">
-			<script type="text/javascript">
-				/* $(function(){
-				        order.init();
-				    }); */
-			</script>
-			<input type="hidden" id="j-promListFlag" name="promListFlag" value="false">
-			<div class="m-order clear-fix">
+                </li>
+                
+                <li class="m-order-item clear-fix">
+                  <div class="promotion-name left">
+                    <span class="middle">
+                      <span class="middle-right" style="padding-right: 34px;">外送费：</span>
+                    </span>
+                  </div>
+                  <div class="delivery-price right">
+                    <span class="red">0.0元</span>
+                  </div>
+                </li>
 
-				<div class="nav clear-fix">
-					<div class="return cursor left" id="j-return-menu"></div>
-					<div class="title right">
-						<span class="nav-left">&nbsp;</span>
-						<span class="nav-icon">&nbsp;</span>
-						<span class="current">确认订单与优惠</span>
-						<span class="nav-line">&nbsp;</span>
-						<span>结算</span>
-						<span class="nav-line">&nbsp;</span>
-						<span>完成</span>
-					</div>
-				</div>
+              </ul>
+            </div>
 
-				<!-- 本单可享优惠 -->
-				<div class="promotion left bgcolor-white">
-					<div class="my-coupon clear-fix">
-						<div class="label left">我的优惠券</div>
-						<div class="num left cursor" id="j-my-coupon">
-							<span class="green font28" id="j-order-coupon-size">1</span>张
-						</div>
-						<div class="btn right cursor ui-bgbtn-green" id="j-my-coupon2">查看</div>
-					</div>
-					<div class="promotion-code">
-						<div class="desc"><span>我有优惠代码</span><span class="show-input-div cursor j-show-input-div"></span></div>
-						<div class="hidden j-input-promotion-div">
-							<input type="text" id="j-input-prom-code" value="输入优惠代码" onfocus="if (value =='输入优惠代码'){value =''}" onblur="if (value ==''){value='输入优惠代码'}">
-							<a class="ui-bgbtn-green disabled right" href="javascript:;" id="j-submit-prom-code">提交</a>
-						</div>
-					</div>
-					<div class="space"></div>
-					<div class="promotion-box">
-						<div class="title">本单可享优惠</div>
-						<ul>
-							<input type="hidden" name="promotion_msg" msgtype="0" value="">
-							<li></li>
-						</ul>
+          </div>
 
-					</div>
-				</div>
+          <div class="m-order-bottom clear-fix">
+            <div class="desc left">
+              <div class="middle">
+                <span class="font-weight">合计&nbsp;<span class="red font22"></span><span class="money red font22" th:text="${order.totalPrice}">0</span>&nbsp;元&nbsp;&nbsp;&nbsp;共<span
+                   class="num" id="j-order-num" th:text="${order.totalNum}">0</span>款商品</span>
+                <br><span class="font12">（含<span class="red">0元</span>外送费）</span>
+              </div>
+            </div>
+            <div class="go-pay right cursor" id="j-go-pay"><span>去结算</span><span class="ui-next">&nbsp;</span></div>
+          </div>
+        </div>
 
-				<!-- 订单详情 -->
-				<div class="detail right bgcolor-white">
-					<div class="title">订单详情</div>
-					<div class="subtotal" id="j-order-subtotal" style="display: block;">
-						<div class="item">比萨<span class="red num">0</span>份</div>
-						<div class="item left-border">其他主食<span class="red num">0</span>份</div>
-						<div class="item left-border">小食<span class="red num">0</span>份</div>
-						<div class="item left-border">汤饮<span class="red num">0</span>份</div>
-					</div>
-					<div class="m-order-box">
-						<div class="head clear-fix">
-							<span class="desc left">餐品和单价</span>
-							<span class="num left">数量</span>
-							<span class="total right">小计</span>
-						</div>
-						<div class="order-list">
-							<ul>
-								<!-- 订单详情 -->
-								<li class="m-order-item clear-fix j-order-item" itemid="" productid="" baseid="" sizeid="" itemtype="">
-									<div class="img left">
-										<div class="middle">
-											<img src="../imgs/products/pizza/3_378.jpg" onerror="" alt="">
-										</div>
-									</div>
-									<div class="desc-box left">
-										<div class="middle ">
-											<span class="j-order-item-desc">浪漫牛排双人餐</span><br>
-											<span class="red">129.0元</span>
-											<span class="grey"><br></span>
-										</div>
-									</div>
-									<div class="calc left">
-										<div class="m-order-calc" itemid="1581592893062147036">
-											<div class="minus ui-minus-red j-minus"></div>
-											<div class="num">
-												<input type="text" value="1" readonly="readonly">
-											</div>
-											<div class="plus ui-plus-grey j-plus"></div>
-										</div>
-									</div>
-									<div class="money right red">
-										<span class="price">129.0</span>元
-									</div>
+      </div>
 
-								</li>
-								<li class="m-order-item clear-fix j-order-item" itemid="" productid="" baseid="" sizeid="" itemtype="">
-									<div class="img left">
-										<div class="middle">
-											<img src="../imgs/products/pizza/3_365.jpg" onerror="" alt="">
-										</div>
-									</div>
-									<div class="desc-box left">
-										<div class="middle ">
-											<span class="j-order-item-desc">浪漫牛排双人餐</span><br>
-											<span class="red">129.0元</span>
-											<span class="grey"><br></span>
-										</div>
-									</div>
-									<div class="calc left">
-										<div class="m-order-calc" itemid="1581592893062147036">
-											<div class="minus ui-minus-red j-minus"></div>
-											<div class="num">
-												<input type="text" value="1" readonly="readonly">
-											</div>
-											<div class="plus ui-plus-grey j-plus"></div>
-										</div>
-									</div>
-									<div class="money right red">
-										<span class="price">129.0</span>元
-									</div>
+    </div>
 
-								</li>
-								<li class="m-order-item clear-fix">
-									<div class="promotion-name left">
-										<span class="middle">
-											<span class="middle-right" style="padding-right: 34px;">外送费：</span>
-										</span>
-									</div>
-									<div class="delivery-price right">
-										<span class="red">9.0元</span>
-									</div>
-								</li>
-
-							</ul>
-						</div>
-
-					</div>
-
-					<div class="m-order-bottom clear-fix">
-						<div class="desc left">
-							<div class="middle">
-								<span class="font-weight">合计&nbsp;<span class="red font22"></span><span class="money red font22">247.0</span>&nbsp;元&nbsp;&nbsp;&nbsp;共<span
-									 class="num" id="j-order-num">2</span>款商品</span>
-								<br><span class="font12">（含<span class="red">9元</span>外送费）</span>
-							</div>
-						</div>
-						<div class="go-pay right cursor" id="j-go-pay"><span>去结算</span><span class="ui-next">&nbsp;</span></div>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-		<!-- 尾部 -->
-		<div class="m-foot">
-			<div class="content">
-				<!-- 底部内容区 -->
-
-				<div class="content-logo">
-					<!-- 底部logo行 -->
-					<a href="#">
-						<div class="logo">
-							<!-- 底部logo图片 -->
-						</div>
-					</a>
-					<div class="phone strong-color">
-						<!-- 底部电话 -->
-						4008-123-123
-					</div>
-				</div>
-
-				<!-- 底部送餐说明 -->
-				<div class="content-legal">
-					必胜客宅急送不同城市或不同餐厅的送餐菜单和价格有所不同。 不同时段产品品项及价格有所不同。工作日特惠午餐及下午茶产品只在部分时段供应。详情以输入送餐地址后显示的实际供应的菜单为准。
-				</div>
-
-				<div class="contont-one">
-					<!-- 底部菜单列 -->
-					<div class="link">
-						<ul>
-							<li class="menu"><a href="#">当季特选</a></li>
-							<li><a href="#">优惠套餐</a></li>
-							<li>|</li>
-							<li><a href="#">比萨</a></li>
-							<li>|</li>
-							<li><a href="#">意面</a></li>
-							<li>|</li>
-							<li><a href="#">饭食</a></li>
-							<li>|</li>
-							<li><a href="#">米线</a></li>
-							<li>|</li>
-							<li><a href="#">小吃</a></li>
-							<li>|</li>
-							<li><a href="#">饮料</a></li>
-							<li>|</li>
-							<li><a href="#">汤</a></li>
-							<li>|</li>
-							<li><a href="#">沙拉和鲜蔬</a></li>
-							<li>|</li>
-							<li><a href="#">甜点</a></li>
-							<li class="margin-right"><a href="">帮助中心</a></li>
-							<li class="margin-right"><a href="">会员中心</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="content-two clear-fix">
-					<div class="middle clear-fix">
-						<div class="left yum-name">
-							<a href="#">百胜咨询（上海）有限公司</a>
-						</div>
-						<div class="left">
-							<ul>
-								<li><a href="#">必胜客会员服务协议</a></li>
-								<li>|</li>
-								<li><a href="#">用户协议</a></li>
-								<li>|</li>
-								<li><a href="#">隐私政策</a></li>
-								<li>|</li>
-								<li><a href="">法律条款</a></li>
-								<li>|</li>
-								<li><a href="">经营公示</a></li>
-								<li>|</li>
-								<li><a href="">联系我们</a></li>
-								<li>|</li>
-								<li><a href="">加入我们</a></li>
-							</ul>
-						</div>
-						<div class="other right">
-							<a href="">沪公网安备 31010402003289号&nbsp;</a>
-							<a href="#">沪ICP备&nbsp;17029211号-1</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+    <!-- 尾部 -->
+  <div class="m-foot" th:insert="other/foot :: footDiv"></div>
+    <script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="../js/common.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(function(){
+        // 增减商品数量
+        $(".order-list .j-order-item .calc .j-minus").on("click",decrGoodNum);
+        $(".order-list .j-order-item .calc .j-plus").on("click",addGoodNum);
+        
+        // 页面左上角箭头返回菜单页面功能
+        $("#j-return-menu").on("click",toMenuPage);
+        $("#j-go-pay").on("click",toPayment);
+      })
+      
+      // 跳转选择支付方式页
+      function toPayment(){
+        var params = getOrderJSON();
+        $.ajax({
+            url: "/order/saveOrderGoods",
+            type: "post",
+            data: JSON.stringify(params),
+            dataType: "json",
+            contentType: "application/json;charset=urf-8",
+            async: true,
+            success: function(result){
+              if(result.state==1){
+                window.location.href="pay.html";
+              }
+            }
+          })
+      }
+      
+      // 获取订单JSON串
+      function getOrderJSON(){
+        var lis = $(".m-order-box .order-list .j-order-item");
+        var arr = new Array();
+        $(lis).each(function(index,li){
+          var goodId=$(li).attr("productid");
+          var picPath = $(li).children(".img").find("img").attr("src");
+          var title = $(li).children(".desc-box").find(".j-order-item-desc").html();
+          var price = $(li).children(".desc-box").find("span:eq(1)").html();
+          var num = $(li).children(".calc").find(".num").children().val();
+          var totalPrice = $(li).children(".money").children(".price").html();
+          var good = {"goodId":goodId,"title":title,"num":num,"price":price,"totalPrice":totalPrice,"picPath":picPath};
+          arr.push(good);
+        })
+        // 所有商品总数
+        var totalNum = getTotalNum();
+        var allPrice = getTotalPrice();
+        
+        var form = $("#form").serializeObject();
+        var order = {"totalNum":totalNum,"totalPrice":allPrice,"bskOrderGoods":arr};
+        var params = $.extend({},form,order);
+        return params;
+      }
+      
+      function toMenuPage(){
+        var params = getOrderJSON();
+        
+        $.ajax({
+            url: "/order/saveOrderGoods",
+            type: "post",
+            data: JSON.stringify(params),
+            dataType: "json",
+            contentType: "application/json;charset=urf-8",
+            async: true,
+            success: function(result){
+              if(result.state==1){
+                window.location.href="Pizza.html";
+              }
+            }
+          })
+      }
+      
+      //form序列化为json
+      $.fn.serializeObject = function() {
+          var o = {};
+          var a = this.serializeArray();
+          $.each(a, function() {
+              if (o[this.name] !== undefined) {
+                  if (!o[this.name].push) {
+                      o[this.name] = [o[this.name]];
+                  }
+                  o[this.name].push(this.value || '');
+              } else {
+                  o[this.name] = this.value || '';
+              }
+          });
+          return o;
+      };
+      
+      // 获取要增减数量的商品的价格
+      function getGoodPrice(obj){
+        var price = parseFloat(obj.parent().parent(".calc").siblings(".desc-box").children().children("span:eq(1)").html());
+        return price;
+      }
+      
+      // 减少商品数量
+      function decrGoodNum(){
+        // 获取原有商品数量
+        var obj = $(this);
+        var val = parseInt(obj.siblings(".num").children().val());
+        obj.siblings(".num").children().val(--val);
+        // 获取总商品数
+        var totalNum = getTotalNum();
+        $("#j-order-num").html(--totalNum);
+        
+        // 获取本商品价格
+        var price = getGoodPrice(obj);
+        
+        // 获取商品小计金额
+        var goodsPrice = getGoodsPrice(obj)
+        countGoodsPrice(obj,goodsPrice-price);
+        
+        // 获取商品总金额
+        var total = getTotalPrice();
+        $(".m-order-bottom .money").html(total-price);
+        if(val==0){
+          obj.parent().parent().parent().remove();
+        }
+      }
+      
+      function addGoodNum(){
+        // 获取原有商品数量
+        var obj = $(this);
+        var val = parseInt(obj.siblings(".num").children().val());
+        obj.siblings(".num").children().val(++val);
+        // 获取总商品数
+        var totalNum = getTotalNum();
+        $("#j-order-num").html(++totalNum);
+        
+        // 获取本商品价格
+        var price = getGoodPrice(obj);
+        
+        // 获取商品小计金额
+        var goodsPrice = getGoodsPrice(obj)
+        countGoodsPrice(obj,goodsPrice+price);
+        
+        // 获取商品总金额
+        var total = getTotalPrice();
+        $(".m-order-bottom .money").html(total+price);
+      }
+      
+      // 获取所有商品总数
+      function getTotalNum(){
+        return parseInt($("#j-order-num").html());
+      }
+      
+      // 获取商品总计金额
+      function getTotalPrice(){
+        var total = parseFloat($(".m-order-bottom .money").html());
+        return total;
+      }
+      
+      // 获取商品小计金额
+      function getGoodsPrice(obj){
+        return parseFloat(obj.parent().parent(".calc").siblings(".money").children(".price").html());
+      }
+      
+      // 给商品小计金额赋值
+      function countGoodsPrice(obj,price){
+        obj.parent().parent(".calc").siblings(".money").children(".price").html(price);
+      }     
+    </script>
+  </body>
 </html>

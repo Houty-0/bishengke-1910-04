@@ -81,6 +81,12 @@
 			<artifactId>hutool-all</artifactId>
 			<version>5.0.7</version>
 		</dependency>
+		<!--spring整合mybatis-plus -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>3.2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

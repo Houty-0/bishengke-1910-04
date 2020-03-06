@@ -1,0 +1,30 @@
+<!-- 头部:使用固定定位-->
+<div class="box" id="j-top-nav" th:fragment="headDiv">
+  <a href="../index.html"> <!-- logo图片 -->
+    <div class="logo left"></div>
+  </a> <a href="#">
+    <div class="menu left menu-on">菜单</div>
+  </a>
+
+  <div class="separator left">
+    <!-- 菜单竖线 -->
+  </div>
+
+  <a href="../customerCenter.html">
+    <div class="menu left">会员中心</div>
+  </a>
+
+  <div class="start right" id="j-start-order">立即点餐</div>
+  <div class="user right red-hover hidden" id="j-top-coupon">
+    我的卡卷(<span id="j-top-coupon-size">3</span>)
+  </div>
+  <div class="separator right"></div>
+  <div class="user hidden right">
+    <span class="username" title="客户">客户</span> <span class="arrow">&nbsp;</span>
+    <ul>
+      <li class="red-hover" id="j-customer-info">个人资料</li>
+      <li class="red-hover" id="j-order-mng">订单管理</li>
+      <li class="red-hover" id="j-logout">退出登录</li>
+    </ul>
+  </div>
+</div>

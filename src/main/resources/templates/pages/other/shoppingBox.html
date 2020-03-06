@@ -1,75 +1,74 @@
 <div class="m-shopping-content" id="j-shopping-content">
-	<div class="title-area" id="j-box-title-area">
-		<div class="close">
-			<span class="label cursor" id="j-shopping-close">&nbsp;</span>
-		</div>
-		<div class="title">我的购物盒</div>
-		<div class="clear-box">
-			<span class="label cursor" id="j-clear-all">清空购物盒</span>
-		</div>
+  <div class="title-area" id="j-box-title-area">
+    <div class="close">
+      <span class="label cursor" id="j-shopping-close">&nbsp;</span>
+    </div>
+    <div class="title">我的购物盒</div>
+    <div class="clear-box">
+      <span class="label cursor" id="j-clear-all">清空购物盒</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="desc-area" id="j-box-desc-area">
-		<div class="item" id="j-desc-pizza">
-			披萨<span class="red num">1</span>份
-		</div>
-		<div class="item left-border" id="j-desc-food">
-			其他主食<span class="red num">0</span>份
-		</div>
-		<div class="item left-border" id="j-desc-dessert">
-			小食<span class="red num">0</span>份
-		</div>
-		<div class="item left-border" id="j-desc-soup">
-			汤饮<span class="red num">0</span>份
-		</div>
-	</div>
+  <div class="desc-area" id="j-box-desc-area">
+    <div class="item" id="j-desc-pizza">
+      披萨<span class="red num">0</span>份
+    </div>
+    <div class="item left-border" id="j-desc-food">
+      其他主食<span class="red num">0</span>份
+    </div>
+    <div class="item left-border" id="j-desc-dessert">
+      小食<span class="red num">0</span>份
+    </div>
+    <div class="item left-border" id="j-desc-soup">
+      汤饮<span class="red num">0</span>份
+    </div>
+  </div>
 
-	<!-- 购物盒产品列表 -->
-	<div class="product-area" id="j-box-product-area"
-		style="height: 435px;">
+  <!-- 购物盒产品列表 -->
+  <div class="product-area" id="j-box-product-area" style="height: 435px;">
 
-		<div class="item clear-fix" id="delivery">
-			<div class="m-p-prom">
-				<div class="middle">
-					<div class="middle-right">
-						<span>外送费: </span>
-					</div>
-				</div>
-			</div>
-			<div class="m-delivery-price">
-				<span>9.0元</span>
-			</div>
-		</div>
+    <div class="item clear-fix" id="delivery">
+      <div class="m-p-prom">
+        <div class="middle">
+          <div class="middle-right">
+            <span>外送费: </span>
+          </div>
+        </div>
+      </div>
+      <div class="m-delivery-price">
+        <span>0.0元</span>
+      </div>
+    </div>
 
-	</div>
+  </div>
 
-	<!-- 送餐地址 -->
-	<div class="address-area clear-fix" id="j-box-address-area">
-		<div class="address left" title="">上海市海华厅(南京东路505号海仑宾馆5层)会湖公园25号</div>
-		<div class="time left">
-			<span class="red">外送</span>&nbsp;&nbsp;预计&nbsp; <span class="red">2020-02-13
-				11:00</span>左右到达
-		</div>
-		<div class="modify right cursor" id="j-box-modify-address">修改</div>
-	</div>
+  <!-- 送餐地址 -->
+  <div class="address-area clear-fix" id="j-box-address-area">
+    <div class="address left" title="">上海市海华厅(南京东路505号海仑宾馆5层)会湖公园25号</div>
+    <div class="time left">
+      <span class="red">外送</span>&nbsp;&nbsp;预计&nbsp; <span class="red">2020-02-13
+        11:00</span>左右到达
+    </div>
+    <div class="modify right cursor" id="j-box-modify-address">修改</div>
+  </div>
 
 </div>
 
 <div class="m-shopping-box clear-fix" id="j-shopping-box">
-	<div class="box-left left cursor" id="j-shopping-box-left">
-		<div class="quantity left" id="j-shopping-box-quantity">0</div>
-		<div class="total left">
-			<div class="middle" style="text-align: center;">
-				<span>总计 <span class="price" id="j-shopping-box-total">0</span>元
-				</span> <span class="font12" id="j-deliver-fee">(含9元外送费)</span>
-			</div>
-		</div>
-	</div>
+  <div class="box-left left cursor" id="j-shopping-box-left">
+    <div class="quantity left" id="j-shopping-box-quantity">0</div>
+    <div class="total left">
+      <div class="middle" style="text-align: center;">
+        <span>总计 <span class="price" id="j-shopping-box-total">0</span>元
+        </span> <span class="font12" id="j-deliver-fee">(含0元外送费)</span>
+      </div>
+    </div>
+  </div>
 
-	<div class="box-right left cursor" id="j-shopping-box-right">
-		<span>选好了</span> <span class="ui-next">&nbsp;</span>
-	</div>
+  <div class="box-right left cursor" id="j-shopping-box-right">
+    <span>选好了</span> <span class="ui-next">&nbsp;</span>
+  </div>
 
 </div>
 
@@ -77,50 +76,130 @@
 <div class="m-shopping-open" id="j-shopping-box-left"></div>
 
 <script type="text/javascript">
-	$(function(){
-		$("#j-shopping-box-left").bind("click",shoppingContentShow);
-		$("#j-shopping-content #j-box-title-area .close").on("click",shoppingContentHide)
-		
-		$("#j-box-product-area").on("click",".j-plus",addShopBoxNum);
-		$("#j-box-product-area").on("click",".j-minus",decrShopBoxNum);
-		// 清空购物车
-		$("#j-clear-all").on("click",clearCart);
-		
-		// 创建数组用于保存在购物盒中已有的商品id
-		var productIds = new Array();
-		$("#j-shopping-box-quantity").data("productIds",productIds);
-		
-		// 选好了跳转订单页面
-		$("#j-shopping-box-right").on("click",toOrderHtml);
-	})
-	
-	function toOrderHtml(){
-		// 1.获取购物盒商品列表商品信息
-		var productIds = $("#j-shopping-box-quantity").data("productIds");
-		
-		$(productIds).each(function(index,productid) {
-        	console.log("productId---",productid);
-        	var val = parseInt($('#j-box-product-area .item[productid='+ productid +'] .num input').val());
-        	console.log("val---",val);
+  $(function(){
+    $("#j-shopping-box-left").bind("click",shoppingContentShow);
+    $("#j-shopping-content #j-box-title-area .close").on("click",shoppingContentHide)
+    // 商品数量加减
+    $("#j-box-product-area").on("click",".j-plus",addShopBoxNum);
+    $("#j-box-product-area").on("click",".j-minus",decrShopBoxNum);
+    
+    // 清空购物车
+    $("#j-clear-all").on("click",clearCart);
+    
+    // 创建数组用于保存在购物盒中已有的商品id
+    var productIds = new Array();
+    $("#j-shopping-box-quantity").data("productIds",productIds);
+    
+    // 选好了跳转订单页面
+    $("#j-shopping-box-right").on("click",toOrderHtml);
+    
+    getBskOrder();
+  })
+  
+  function getBskOrder(){
+    var _bskorder= $.cookie('bskorder');
+    if(!_bskorder){return}
+    
+    $.ajax({
+      url: "/order/getOrderGoods",
+      type: "GET",
+      dataType: "json",
+      success: function(result){
+        if(result.state==1){
+          doHandleBskOrder(result.data);
+        }
+      }
+    })
+  }
+  
+  function doHandleBskOrder(bskOrder){
+    // 所有商品总计金额
+    $("#j-shopping-box-total").html(bskOrder.totalPrice);
+    // 总计数量
+    $("#j-shopping-box-quantity").html(bskOrder.totalNum);
+    var html = "";
+    var productIds = new Array();
+    $(bskOrder.bskOrderGoods).each(function(index,bskOrderGood){
+      var productid=bskOrderGood.goodId;
+      productIds.push(bskOrderGood.goodId);
+      var imgUrl=bskOrderGood.picPath;
+      var name=bskOrderGood.title;
+      var price=bskOrderGood.price;
+      var num=bskOrderGood.num;
+      var goodhtml = createShoppingBoxGoodHtml(productid,imgUrl,name,price,num);
+      html+=goodhtml;
+    });
+    $("#j-shopping-box-quantity").data("productIds",productIds);
+    $("#delivery").before(html);
+  }
+  
+  function toOrderHtml(){
+    // 1.获取购物盒商品列表商品信息
+    var productIds = $("#j-shopping-box-quantity").data("productIds");
+    var arr = new Array();
+    var total = 0.0;// 订单金额
+    var totalNum = 0;
+    $(productIds).each(function(index,productId) {
+          var product = $('#j-box-product-area .item[productid='+ productId +']');
+            
+          var val = parseInt($('#j-box-product-area .item[productid='+ productId +'] .num input').val());
+          
+          var picPath = product.children(".m-p-img").children("img").attr("src");
+          
+          var title = product.children(".m-p-desc").children(".middle").children("span:eq(0)").html();
+          
+          var price = product.children(".m-p-desc").children(".middle").children("span:eq(1)").html();
+          
+          var num = parseInt(product.children(".m-p-calc").children(".num").children("input").val());
+      totalNum +=num;         
+          
+          var totalPrice = price*num;
+          total += totalPrice;
+          var good={"goodId":productId,"title":title,"price":price,"totalPrice":totalPrice,"num":num,"picPath":picPath};
+          arr.push(good);
         });
-		
-	}
-	
-	function shoppingContentShow() {
-		$("#j-shopping-content").toggle();
-	}
-	
-	function shoppingContentHide() {
-		$("#j-shopping-content").hide();
-	}
-	
-	function clearCart(){
-		$("#delivery").siblings().remove();
-		$("#j-shopping-box-quantity").html(0);
-		$("#j-shopping-box-total").html(0);
-		
-		var productIds = new Array();
-		$("#j-shopping-box-quantity").data("productIds",productIds);
-	}
+    var city = "桂林";
+    var addr = $("#j-box-address-area .address").html();
+    var orderType = "外卖";
+    var userId = 10;
+    var username = "可乐";
+    var phone = "13698745632";
+  
+    var params={"userId":userId,"username":username,"phone":phone,"totalPrice":total,"city":city,"addr":addr,"totalNum":totalNum,
+    "orderType":orderType,"bskOrderGoods":arr};
+    
+      $.ajax({
+        url: "/order/saveOrderGoods",
+        type: "post",
+        data: JSON.stringify(params),
+        dataType: "json",
+        contentType: "application/json;charset=urf-8",
+        async: true,
+        success: function(result){
+          if(result.state==1){
+            $.cookie('bskorder', userId, { expires: 7, path: '/' });
+            location.href="order.html";
+          }
+        }
+      })
+  }
+  
+  function shoppingContentShow() {
+    $("#j-shopping-content").toggle();
+  }
+  
+  function shoppingContentHide() {
+    $("#j-shopping-content").hide();
+  }
+  
+  // 清空购物车
+  function clearCart(){
+    $("#delivery").siblings().remove();
+    $("#j-shopping-box-quantity").html(0);
+    $("#j-shopping-box-total").html(0);
+    
+    var productIds = new Array();
+    $("#j-shopping-box-quantity").data("productIds",productIds);
+  }
 
 </script>

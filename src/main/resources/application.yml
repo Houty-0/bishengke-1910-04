@@ -30,13 +30,12 @@ spring:
         allow-core-thread-timeout: false
       thread-name-prefix: spring.async.task-
 
-#mybatis
-mybatis:
+#mybatis-plush配置
+mybatis-plus:
+  type-aliases-package: com.bsk.dican.entity
+  mapper-locations: classpath:/mapper/*/*.xml
   configuration:
-    default-statement-timeout: 30
     map-underscore-to-camel-case: true
-  mapper-locations:
-  - classpath:/mapper/*/*.xml
 
 #lOG
 logging:

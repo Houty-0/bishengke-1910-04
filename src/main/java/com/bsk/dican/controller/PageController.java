@@ -17,9 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bsk.common.session.MySessionContext;
+import com.bsk.common.util.ShiroUtil;
 import com.bsk.dican.entity.BskMenu;
+import com.bsk.dican.entity.BskOrder;
 import com.bsk.dican.entity.BskUser;
 import com.bsk.dican.service.BskMenuService;
+import com.bsk.dican.service.BskOrderService;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -32,52 +36,16 @@ public class PageController {
     public String doLoginUI() {
         return "login";
     }
-
-    /**
-     * 转发到指定的页面
-     *
-     * @param page 页面的视图名
-     * @return 视图名
-     */
+    
+    
     @RequestMapping("/{page}")
-    public String toPage(@PathVariable String page, Model model, HttpServletRequest request,
-                         HttpServletResponse response, HttpSession session) {
+    public String toPage(@PathVariable String page) {
         System.out.println("page---------" + page);
-
-        if ("Pizza.html".equals(page)) {
-            List<BskMenu> menus = bskMenuService.findObjets();
-
-            model.addAttribute("menus", menus);
-        }
-
-//		Cookie[] cookies = request.getCookies();
-//		System.err.println("cookies.length====" + cookies.length);
-//		if (cookies != null) {
-//			for (Cookie cookie : cookies) {
-//				if (cookie.getName().equals("JSESSIONID")) {
-//					System.err.println("cookieName:::" + cookie.getName());
-//					System.err.println("cookieValue:::" + cookie.getValue());
-//					HttpSession userSession = MySessionContext.getInstance().getSession(cookie.getValue());
-//					if (userSession != null) {
-//						BskUser user = (BskUser) userSession.getAttribute("user");
-//						System.out.println("登录用户loginUser:::" + user);
-//					} else {
-//						System.out.println("用户未登录!!!!!!");
-//					}
-//
-//				}
-//			}
-//		}
 
         return page;
     }
 
-    /**
-     * rest风格(软件架构编码风格)的url {}为rest表达式(内容为自己定义的变量)
-     *
-     * @param moduleUI
-     * @return
-     */
+   
     @RequestMapping("{module}/{moduleUI}.html")
     public String doLogUI(@PathVariable String moduleUI) {
         System.out.println(moduleUI + "----------");
@@ -96,5 +64,46 @@ public class PageController {
         subject.logout();
         return JsonResult.ok("成功退出");
     }
+    
+    @RequestMapping("/Pizza.html")
+	public String toPizza(Model model) {
+		List<BskMenu> menus = bskMenuService.findObjets();
+
+		model.addAttribute("menus", menus);
+		
+		return "Pizza";
+	}
+    
+    @RequestMapping("/order.html")
+	public String toOrder(HttpSession session,Model model) {
+		System.out.println("~~~~~~~order.html~~~~~~~~");
+		Integer userId = ShiroUtil.getUserId();
+		BskOrder bskOrder = (BskOrder)session.getAttribute("order" + userId);
+		model.addAttribute("order",bskOrder);
+		System.out.println();
+		return "order";
+	}
+	
+	@RequestMapping("/pay.html")
+	public String toPay(HttpSession session,Model model) {
+		System.out.println("~~~~~~~pay.html~~~~~~~~");
+		Integer userId = ShiroUtil.getUserId();
+		BskOrder bskOrder = (BskOrder)session.getAttribute("order" + userId);
+		model.addAttribute("order",bskOrder);
+		System.out.println();
+		return "pay";
+	}
+	
+	@Autowired
+	private BskOrderService bskOrderService;
+	
+	@RequestMapping("/payment.html")
+	public String payment(String id,Model model) {
+		System.out.println("~~~~~~~payment.html~~~~~~~~");
+		BskOrder bskOrder = bskOrderService.findOrderByOrderId(id);
+		model.addAttribute("order", bskOrder);
+		
+		return "payment";
+	}
 
 }
