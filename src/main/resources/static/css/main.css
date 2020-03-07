@@ -1010,3 +1010,67 @@ img {
     -moz-opacity: 0.5;
     opacity: 0.5;
 }
+
+.ui-dialog-alert .dialog-button, .ui-dialog-confirm .dialog-button {
+    display: block;
+}
+
+.ui-dialog-alert, .ui-dialog-confirm {
+    margin-top: -100px;
+    margin-left: -180px;
+    z-index: 9200;
+}
+
+.ui-dialog2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #FFF;
+    border-radius: 2px;
+    z-index: 9000;
+    min-width: 360px;
+    min-height: 100px;
+    overflow: hidden;
+}
+
+.ui-dialog2 .dialog-message {
+    display: table;
+    height: 114px;
+    width: 260px;
+    padding: 20px 50px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.ui-dialog2 .dialog-message span {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 22px;
+}
+
+.ui-dialog2 .dialog-button {
+    height: 66px;
+    text-align: center;
+}
+
+.ui-dialog2 .dialog-button .confirm {
+    border: 1px solid #68d381;
+    border-bottom-color: #58B36E;
+    color: #fff;
+}
+.ui-dialog2 .dialog-button div {
+    display: inline-block;
+    min-width: 80px;
+    height: 34px;
+    margin: 0 12px;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 34px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.ui-bgbtn-green {
+    background-color: #68d381;
+    transition: .2s ease-out;
+}

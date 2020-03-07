@@ -149,6 +149,17 @@
 
     <!-- 尾部 -->
   <div class="m-foot" th:insert="other/foot :: footDiv"></div>
+  <!-- alert弹出层 -->
+  <div class="ui-dialog2 ui-dialog-alert" id="j-dialog-alert" style="display:none">
+    <div class="dialog-message">
+        <span>您提交的订单内容不能为空，请先选择餐点！</span>
+    </div>
+    <div class="dialog-button">
+        <div class="confirm ui-bgbtn-green">确定</div>
+    </div>
+  </div>
+  <!-- 弹出层遮罩层 -->
+  <div class="ui-dialog-overlay" id="j-dialog-overlay" style="z-index: 8000; display: none;"></div>
     <script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="../js/jquery.cookie.js" type="text/javascript"></script>
     <script src="../js/common.js" type="text/javascript"></script>
@@ -161,11 +172,35 @@
         // 页面左上角箭头返回菜单页面功能
         $("#j-return-menu").on("click",toMenuPage);
         $("#j-go-pay").on("click",toPayment);
+        
+     	// 弹出层确定按钮关闭功能
+    	$("#j-dialog-alert").on("click",closeUiDialogAlert);
+     	
+    	checkLogin();
       })
+      
+      function checkLogin(){
+		var _id = $.cookie('id');
+		if(!_id){
+			return;
+		}
+		$("#j-start-order").hide();
+		$("#j-top-coupon").removeClass("hidden");
+		$("#j-top-nav .user").removeClass("hidden");
+}
+      
+      function closeUiDialogAlert(){
+		$("#j-dialog-overlay").hide();
+		$("#j-dialog-alert").hide();
+	  }
       
       // 跳转选择支付方式页
       function toPayment(){
         var params = getOrderJSON();
+        if(params==null){
+        	alertUiDialog();
+        	return;
+        }
         $.ajax({
             url: "/order/saveOrderGoods",
             type: "post",
@@ -181,9 +216,15 @@
           })
       }
       
+      function alertUiDialog(){
+    	  $("#j-dialog-overlay").show();
+    	  $("#j-dialog-alert").show();
+      }
+      
       // 获取订单JSON串
       function getOrderJSON(){
         var lis = $(".m-order-box .order-list .j-order-item");
+        if(lis.length==0){return null}
         var arr = new Array();
         $(lis).each(function(index,li){
           var goodId=$(li).attr("productid");
@@ -207,7 +248,11 @@
       
       function toMenuPage(){
         var params = getOrderJSON();
-        
+        if(params==null){
+        	window.location.href="Pizza.html";
+        	$.cookie('bskorder',null,{ expires: 0, path: '/' });
+        	return;
+        }
         $.ajax({
             url: "/order/saveOrderGoods",
             type: "post",

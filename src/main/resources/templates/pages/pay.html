@@ -136,7 +136,16 @@
         
         // 提交订单
         $("#j-bnt-submit").on("click",submitOrder);
+        
+     	// 检查用户是否登陆
+    	checkLogin();
       })
+      
+      function checkLogin(){
+		$("#j-start-order").hide();
+		$("#j-top-coupon").removeClass("hidden");
+		$("#j-top-nav .user").removeClass("hidden");
+	}
       
       function submitOrder(){
         var payType = $(".pay-method-list .on").index() + 1;

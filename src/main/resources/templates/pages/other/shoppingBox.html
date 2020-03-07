@@ -133,9 +133,24 @@
     $("#delivery").before(html);
   }
   
+  function checkShoppingBox(productIds){
+	  var flag = 1;
+	  if (productIds.length==0){
+		  $("#j-dialog-overlay").show();
+		  $("#j-dialog-alert").show();
+		  flag = 0;
+	  }
+	  return flag;
+  }
+  
   function toOrderHtml(){
     // 1.获取购物盒商品列表商品信息
     var productIds = $("#j-shopping-box-quantity").data("productIds");
+    // 2.判断购物盒是否有商品
+    var flag = checkShoppingBox(productIds);
+    if(flag==0){
+    	return;
+    }
     var arr = new Array();
     var total = 0.0;// 订单金额
     var totalNum = 0;
@@ -151,7 +166,7 @@
           var price = product.children(".m-p-desc").children(".middle").children("span:eq(1)").html();
           
           var num = parseInt(product.children(".m-p-calc").children(".num").children("input").val());
-      totalNum +=num;         
+      	  totalNum +=num;         
           
           var totalPrice = price*num;
           total += totalPrice;

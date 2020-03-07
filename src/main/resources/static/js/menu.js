@@ -14,6 +14,9 @@ $(function() {
 	// 检查用户是否登陆
 	checkLogin();
 	
+	// 弹出层确定按钮关闭功能
+	$("#j-dialog-alert").on("click",closeUiDialogAlert);
+	
 	/*
 	 * $(".m-main").waypoint(function(){ $(".m-main .m-menu
 	 * ul").removeAttr("style","top"); $(".m-main .m-menu
@@ -25,6 +28,11 @@ $(function() {
 	 */
 
 });
+
+function closeUiDialogAlert(){
+	$("#j-dialog-overlay").hide();
+	$("#j-dialog-alert").hide();
+}
 
 function checkLogin(){
 	var _id = $.cookie('id');
